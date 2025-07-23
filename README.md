@@ -145,7 +145,40 @@ The server will be built using:
 - And 5 additional analytical questions
 
 **✅ Production Ready:**  
-Both tools are **fully operational and ready for immediate use** with real cleanroom data.
+All tools are **fully operational and ready for immediate use** with real cleanroom data.
+
+### `create_aws_s3_connection` Tool ✨ NEW
+**Date:** January 17, 2025  
+**Status:** 🟢 **PRODUCTION READY**  
+**Result:** ✅ **Comprehensive AWS S3 Data Connection Workflow**
+
+**🎯 Tool Capabilities:**
+- **Guided Setup**: Step-by-step process following official LiveRamp documentation
+- **Input Validation**: Comprehensive validation with best practice recommendations  
+- **Credential Management**: Create new AWS credentials or use existing ones
+- **Error Handling**: Detailed troubleshooting guidance and graceful error recovery
+- **Dry Run Mode**: Validate configuration before creating actual connections
+
+**📋 Workflow Features:**
+- **Phase 1**: Input validation with S3 path format checking and Hive-style partitioning detection
+- **Phase 2**: AWS credential creation or selection with OAuth credential management
+- **Phase 3**: Data connection creation with proper API payload construction
+- **Phase 4**: Automatic field mapping configuration (when enabled)
+
+**🔧 Configuration Options:**
+- **File Formats**: CSV, Parquet, Delta support
+- **Partitioning**: Hive-style date partitioning with auto-detection
+- **Field Mapping**: Automatic field mapping with intelligent defaults
+- **CSV Options**: Custom delimiters, quote characters, and formatting
+- **Validation**: Dry run mode for testing configurations
+
+**✅ Real API Integration:**
+- Creates actual AWS IAM User Credentials via `/organization-credentials` endpoint
+- Establishes data connections via `/data-connections` endpoint  
+- Integrates with LiveRamp credential management system
+- Provides status monitoring and next-step guidance
+
+**Tool is production-ready for creating real AWS S3 data connections with comprehensive error handling and user guidance.**
 
 ## Installation
 
@@ -174,6 +207,7 @@ The server requires Habu API credentials:
 2. **`list_cleanrooms`** - List all available cleanrooms in your organization  
 3. **`list_questions`** - List questions available in a specific cleanroom
 4. **`run_overlap_analysis`** - Execute overlap and index analysis with full workflow automation
+5. **`create_aws_s3_connection`** - ✨ **NEW**: Create Client-Hosted AWS S3 data connections with guided setup
 
 ### Development Tools
 
