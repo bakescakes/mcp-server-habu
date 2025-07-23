@@ -1,0 +1,84 @@
+# MCP Server for Habu
+
+An MCP (Model Context Protocol) Server that provides intelligent workflow-based access to the Habu Clean Room API. Rather than exposing individual API endpoints, this server focuses on common user tasks and workflows in data clean room management.
+
+## Project Overview
+
+This MCP Server transforms raw API interactions into intelligent, workflow-oriented tools that understand the context and relationships between different clean room operations.
+
+## Target Workflows
+
+Based on the Habu Clean Room API analysis, this server will provide the following high-level workflow tools:
+
+### 1. Clean Room Management
+- **Setup Clean Room Workspace**: Create a new clean room with proper configuration, invite partners, and set up initial datasets
+- **Manage Clean Room Lifecycle**: Update settings, manage partners, and handle clean room archival
+- **Monitor Clean Room Status**: Get comprehensive status and health metrics for clean rooms
+
+### 2. Data Connection Workflows  
+- **Establish Data Connection**: Create and configure data connections with proper field mappings and credentials
+- **Validate Data Integration**: Test and verify data connection configurations
+- **Manage Connection Lifecycle**: Update, maintain, and troubleshoot data connections
+
+### 3. Question and Query Workflows
+- **Deploy Analytics Question**: Add questions to clean rooms with proper dataset assignments and permissions
+- **Execute Question Runs**: Run questions with runtime parameters and monitor execution
+- **Manage Question Schedules**: Set up, modify, and monitor recurring question executions
+- **Retrieve and Analyze Results**: Access question results with proper formatting and analysis context
+
+### 4. Collaboration Workflows
+- **Partner Onboarding**: Invite partners, manage permissions, and guide through setup process
+- **Permission Management**: Configure granular permissions for questions and datasets
+- **Result Sharing**: Securely distribute question results to authorized partners
+
+### 5. Operational Workflows
+- **Health Monitoring**: Monitor clean room, question, and connection health across the organization
+- **Usage Analytics**: Generate insights on clean room utilization and performance
+- **Troubleshooting**: Diagnose and resolve common issues with intelligent guidance
+
+## Technical Architecture
+
+The server will be built using:
+- **Python 3.8+** with async/await for efficient API handling
+- **MCP SDK** for protocol compliance
+- **Pydantic** for data validation and serialization
+- **httpx** for HTTP client operations
+- **Rich logging** for comprehensive operation tracking
+
+## Development Progress
+
+- [x] Project initialization and planning
+- [ ] Core MCP server infrastructure
+- [ ] Authentication and API client setup
+- [ ] Clean room management workflows
+- [ ] Data connection workflows
+- [ ] Question and query workflows
+- [ ] Collaboration workflows
+- [ ] Operational workflows
+- [ ] Error handling and resilience
+- [ ] Documentation and examples
+- [ ] Testing and validation
+
+## Installation
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure MCP
+# Add to your MCP configuration file
+```
+
+## Configuration
+
+The server requires Habu API credentials:
+- `HABU_API_CLIENT_ID`: OAuth client ID
+- `HABU_API_CLIENT_SECRET`: OAuth client secret  
+- `HABU_API_BASE_URL`: API base URL (defaults to https://api.habu.com/v1/)
+
+## Usage
+
+This MCP server provides workflow-based tools that can be used through any MCP-compatible client. Each tool is designed to handle a complete business workflow rather than individual API calls.
+
+---
+*Generated with [Memex](https://memex.tech)*
