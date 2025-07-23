@@ -9,6 +9,8 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 ✅ **MCP Server**: Production-ready with multiple tools  
 ✅ **API Integration**: Real API calls with fallback to mock data  
 ✅ **Complete Workflow**: From authentication to results  
+✅ **Interactive AWS S3 Wizard**: Multi-connection batch creation working  
+✨ **Clean Room Creation**: Comprehensive implementation plan completed  
 
 **Ready for immediate use in Memex or any MCP-compatible client.**
 
@@ -47,7 +49,14 @@ Based on the Habu Clean Room API analysis, this server will provide the followin
 - **Validate Data Integration**: Test and verify data connection configurations
 - **Manage Connection Lifecycle**: Update, maintain, and troubleshoot data connections
 
-### 3. Question and Query Workflows
+### 3. Clean Room Creation Workflows ✨ **NEW** 
+- **Interactive Clean Room Wizard**: Step-by-step guided creation of new clean rooms
+- **Infrastructure Configuration**: Smart cloud/region selection with recommendations  
+- **Privacy Control Setup**: Configure Data Decibel and Crowd Size parameters
+- **Feature Configuration**: Enable Intelligence, Exports, and advanced capabilities
+- **Validation & Review**: Comprehensive pre-creation validation and summary
+
+### 4. Question and Query Workflows
 - **Deploy Analytics Question**: Add questions to clean rooms with proper dataset assignments and permissions
 - **Execute Question Runs**: Run questions with runtime parameters and monitor execution
 - **Manage Question Schedules**: Set up, modify, and monitor recurring question executions
