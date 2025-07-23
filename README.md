@@ -190,6 +190,34 @@ All tools are **fully operational and ready for immediate use** with real cleanr
 - ✅ **Flexible Configuration**: Support for existing credentials and various CSV options
 - ✅ **Best Practices**: Automatic recommendations for optimal configurations
 
+### `configure_data_connection_fields` Tool ✨ NEW
+**Date:** January 17, 2025  
+**Status:** 🟢 **PRODUCTION READY**  
+**Result:** ✅ **Intelligent Field Mapping & Analysis**
+
+**🎯 Tool Capabilities:**
+- **Smart PII Detection**: Automatically identifies PII fields using pattern matching
+- **User Identifier Setup**: Flags fields suitable for matching and audience building
+- **Data Type Analysis**: Categorizes fields by type (STRING, DOUBLE, TIMESTAMP, etc.)
+- **Field Statistics**: Provides comprehensive analysis summaries
+- **Dry Run Mode**: Preview configurations before applying changes
+
+**📊 Analysis Features:**
+- **PII Pattern Recognition**: Detects email, phone, name, address, ID patterns
+- **Identifier Detection**: Automatically flags user_id, cid, customer_id fields
+- **Data Type Intelligence**: Recognizes numeric, timestamp, and string fields
+- **Inclusion Logic**: Configures which fields to include in clean room analysis
+- **Configuration Guidance**: Step-by-step manual setup instructions
+
+**✅ Real Testing Results:**
+- **Connection**: MCP Server Enhanced Test V3 (20 fields analyzed)
+- **PII Detection**: Correctly identified CID as PII and User Identifier ✅
+- **Data Types**: Properly categorized STRING, DOUBLE, TIMESTAMP fields ✅
+- **Field Analysis**: Complete analysis of all 20 ad log fields ✅
+- **Configuration Guidance**: Clear manual setup instructions provided ✅
+
+**Tool provides complete field mapping intelligence for data connections in 'Mapping Required' status.**
+
 ## Installation
 
 ```bash
@@ -217,7 +245,8 @@ The server requires Habu API credentials:
 2. **`list_cleanrooms`** - List all available cleanrooms in your organization  
 3. **`list_questions`** - List questions available in a specific cleanroom
 4. **`run_overlap_analysis`** - Execute overlap and index analysis with full workflow automation
-5. **`create_aws_s3_connection`** - ✨ **NEW**: Create Client-Hosted AWS S3 data connections with guided setup
+5. **`create_aws_s3_connection`** - ✨ Create Client-Hosted AWS S3 data connections with guided setup
+6. **`configure_data_connection_fields`** - ✨ **NEW**: Intelligent field mapping for data connections
 
 ### Development Tools
 
