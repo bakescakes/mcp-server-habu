@@ -316,11 +316,19 @@ The server requires Habu API credentials:
 
 This MCP server provides workflow-based tools that can be used through any MCP-compatible client. Each tool is designed to handle a complete business workflow rather than individual API calls.
 
-## 🎯 Clean Room Creation Project - In Progress
+## 🎯 Clean Room Creation Project - ENHANCED
 
-### Project Status: Starting Clean Room Creation Wizard
-**Date**: January 17, 2025  
-**Objective**: Create a new clean room using the interactive wizard tool
+### Latest Update: Wizard Default Settings Updated
+**Date**: July 23, 2025  
+**Enhancement**: Updated clean room wizard default privacy settings per user requirements
+
+### 🔄 **Default Settings Update Applied:**
+- **Enable Intelligence**: ON (was OFF) ✅ 
+- **Enable Exports**: ON (was OFF) ✅
+- **Data Decibel**: 1 (unchanged) ✅
+- **Crowd Size**: 1 (was 50) ✅
+- **Enable PAIR**: OFF (was ON) ✅
+- **View Queries**: ON (unchanged) ✅
 
 ### Step-by-Step Plan:
 1. ✅ **Assessment Phase**: Check existing MCP server capabilities and documentation
@@ -332,10 +340,11 @@ This MCP server provides workflow-based tools that can be used through any MCP-c
 7. ✅ **Review Phase**: Confirm all settings before creation (Step 6)
 8. ✅ **Creation Phase**: Execute clean room creation (Step 7) 
 9. ✅ **Documentation**: Update project documentation with results
+10. ✅ **Enhancement**: Update wizard default settings (NEW)
 
-### 🎉 PROJECT COMPLETE - Clean Room Successfully Created!
+### 🎉 PROJECT COMPLETE - Clean Room Successfully Created & Enhanced!
 
-**Final Status**: ✅ **ALL STEPS COMPLETE**
+**Final Status**: ✅ **ALL STEPS COMPLETE + WIZARD UPDATED**
 
 ### Clean Room Created:
 - **Clean Room ID**: `fc365992-c19c-4e87-a46a-08b29f17836e`
@@ -346,15 +355,24 @@ This MCP server provides workflow-based tools that can be used through any MCP-c
 - **Type**: Hybrid (walled garden support)
 - **Start Date**: 2025-07-24
 - **Infrastructure**: AWS US-EAST1
-- **Privacy**: Data Decibel=1, Crowd Size=50
-- **Features**: Core capabilities enabled, Intelligence/Exports disabled
+- **Privacy**: Data Decibel=1, Crowd Size=50 (created with old defaults)
+- **Features**: Core capabilities enabled, Intelligence/Exports disabled (created with old defaults)
+
+### 🆕 **Enhanced Wizard Features:**
+- **Updated Defaults**: New clean rooms will use optimized privacy settings
+- **Intelligence Enabled**: AI-powered insights enabled by default
+- **Export Capabilities**: Data export enabled by default  
+- **Reduced Crowd Size**: Minimum threshold set to 1 for maximum granularity
+- **PAIR Disabled**: Data pairing disabled by default for streamlined setup
+- **Maintains Compatibility**: View queries remain enabled for partner collaboration
 
 ### Next Steps Available:
-1. **Question Permissions**: Configure via LiveRamp UI
-2. **Add Partners**: Invite collaborating organizations  
-3. **Data Connections**: Use `start_aws_s3_connection_wizard()`
-4. **Create Questions**: Build analytical queries
-5. **Run Analysis**: Execute with `run_overlap_analysis()`
+1. **Test New Defaults**: Create another clean room to verify updated settings
+2. **Question Permissions**: Configure via LiveRamp UI
+3. **Add Partners**: Invite collaborating organizations  
+4. **Data Connections**: Use `start_aws_s3_connection_wizard()`
+5. **Create Questions**: Build analytical queries
+6. **Run Analysis**: Execute with `run_overlap_analysis()`
 
 ---
 *Generated with [Memex](https://memex.tech)*
