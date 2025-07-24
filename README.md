@@ -43,6 +43,11 @@ CLIENT_SECRET=bGzWYlAxXYPrSL8tsGQOP7ifCjr8eec1fiN-Jo_HpKPSUxeFSxfjIHq032c08SKC
 
 This MCP Server transforms raw API interactions into intelligent, workflow-oriented tools that understand the context and relationships between different clean room operations.
 
+### 🔧 **Project Development Rules**
+- **Always configure MCP server in Memex after any changes**: After modifying the Habu MCP Server code, always update the MCP server configuration in Memex to ensure the latest tools are available and properly initialized
+- **Full path configuration**: Use absolute paths when configuring the MCP server runtime
+- **Environment variables**: Always include the production OAuth2 credentials in the MCP server environment configuration
+
 ## Target Workflows
 
 Based on the Habu Clean Room API analysis, this server will provide the following high-level workflow tools:
