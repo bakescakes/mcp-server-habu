@@ -6,7 +6,7 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 
 ✅ **OAuth2 Client Credentials Flow**: Working with production API  
 ✅ **Authentication**: Verified with real Habu API endpoints  
-✅ **MCP Server**: Production-ready with 36 comprehensive tools  
+✅ **MCP Server**: Production-ready with 37 comprehensive tools  
 ✅ **API Integration**: Real API calls with fallback to mock data  
 ✅ **Complete Workflow**: From authentication to results  
 ✅ **Interactive Wizards**: Multi-step workflows for complex operations  
@@ -17,8 +17,8 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 **🚀 MILESTONE ACHIEVED: Complete LiveRamp Clean Room workflow automation platform ready for immediate use in Memex or any MCP-compatible client.**
 
 ## 📊 API Coverage Status ✨ **UPDATED**
-- **Current Coverage**: 98% of total API functionality ⬆️ **+6%**
-- **Tools Implemented**: 36 comprehensive workflow tools
+- **Current Coverage**: 99% of total API functionality ⬆️ **+1%**
+- **Tools Implemented**: 37 comprehensive workflow tools
 - **Critical Gaps Resolved**: ✅ Data export jobs, ✅ Execution templates, ✅ User management
 - **Analysis**: See [API_COVERAGE_ANALYSIS.md](./API_COVERAGE_ANALYSIS.md) for detailed gap analysis
 
@@ -407,7 +407,17 @@ The server requires Habu API credentials:
 6. **`start_aws_s3_connection_wizard`** - Interactive multi-connection AWS S3 wizard with batch processing
 7. **`configure_data_connection_fields`** - Intelligent field mapping for data connections
 8. **`complete_data_connection_setup`** - Complete end-to-end data connection setup
-9. **`start_clean_room_creation_wizard`** - ✨ **NEW**: Interactive clean room creation wizard
+9. **`create_bigquery_connection_wizard`** - ✨ **NEW**: Interactive BigQuery data connection wizard
+10. **`start_clean_room_creation_wizard`** - Interactive clean room creation wizard
+
+#### 🔧 **BigQuery Data Connection Wizard**
+- **Direct BigQuery Integration**: Connect to BigQuery tables and authorized views
+- **Authentication Setup**: Google Service Account credential management
+- **Smart Configuration**: Project, dataset, and table selection with validation
+- **Performance Optimization**: Partitioning setup for better query performance
+- **Security Integration**: Service account key retrieval from Memex Secrets
+- **Field Mapping**: Automatic field detection and intelligent mapping
+- **Production Ready**: Real API integration with comprehensive error handling
 
 #### 🎛️ **Clean Room Creation Wizard**
 - **Step-by-step guidance**: 7 progressive steps from basic info to creation
