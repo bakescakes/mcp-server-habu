@@ -15,7 +15,7 @@
 | Tool | Status | Test Focus | Expected Real-World Result |
 |------|--------|------------|----------------------------|
 | `test_connection` | ✅ | OAuth2 auth, API connectivity | Valid token, clean room access verified |
-| `list_cleanrooms` | 🔄 | Clean room discovery | Actual clean rooms from user's organization |
+| `list_cleanrooms` | ✅ | Clean room discovery | Actual clean rooms from user's organization |
 | `list_questions` | ⏳ | Question catalog access | Real questions from selected clean room |
 | `run_overlap_analysis` | ⏳ | Complete analysis execution | Question run visible in Habu UI |
 | `configure_data_connection_fields` | ⏳ | Field mapping intelligence | Data connection status changes in UI |
@@ -153,7 +153,7 @@ For each tool to pass validation:
 ## 📊 Progress Tracking
 
 **Testing Started**: January 17, 2025  
-**Tools Completed**: 1/37  
+**Tools Completed**: 2/37  
 **Current Phase**: Phase 1 - Foundation Tools  
 **Next Milestone**: Complete foundation tools validation  
 

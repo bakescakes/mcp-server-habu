@@ -6,7 +6,7 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 
 ✅ **OAuth2 Client Credentials Flow**: Working with production API  
 ✅ **Authentication**: Verified with real Habu API endpoints  
-✅ **MCP Server**: Production-ready with 34 comprehensive tools  
+✅ **MCP Server**: Production-ready with 36 comprehensive tools  
 ✅ **API Integration**: Real API calls with fallback to mock data  
 ✅ **Complete Workflow**: From authentication to results  
 ✅ **Interactive Wizards**: Multi-step workflows for complex operations  
@@ -18,7 +18,7 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 
 ## 📊 API Coverage Status ✨ **UPDATED**
 - **Current Coverage**: 98% of total API functionality ⬆️ **+6%**
-- **Tools Implemented**: 37 comprehensive workflow tools ⬆️ **+3**
+- **Tools Implemented**: 36 comprehensive workflow tools
 - **Critical Gaps Resolved**: ✅ Data export jobs, ✅ Execution templates, ✅ User management
 - **Analysis**: See [API_COVERAGE_ANALYSIS.md](./API_COVERAGE_ANALYSIS.md) for detailed gap analysis
 
@@ -96,7 +96,7 @@ The server will be built using:
 - **httpx** for HTTP client operations
 - **Rich logging** for comprehensive operation tracking
 
-## 🏗️ Platform Architecture - 37 Production Tools ✨ **ENHANCED**
+## 🏗️ Platform Architecture - 36 Production Tools ✨ **ENHANCED**
 
 ### **🎯 Core Platform Features**
 - **Complete API Coverage**: 98% of LiveRamp Clean Room API functionality ⬆️
@@ -106,10 +106,9 @@ The server will be built using:
 - **Enterprise Security**: OAuth2, audit logging, compliance reporting
 - **Advanced Automation**: Template-based execution and bulk operations ✨ **NEW**
 
-### **📊 Tool Categories (37 Total) ⬆️ +3 NEW**
+### **📊 Tool Categories (36 Total)**
 
-#### **Foundation Tools (9 tools)**
-- `run_overlap_analysis` - Execute overlap and index analysis
+#### **Foundation Tools (8 tools)**
 - `test_connection` - OAuth2 authentication testing
 - `list_cleanrooms` - Comprehensive clean room listing
 - `list_questions` - Question discovery and browsing
