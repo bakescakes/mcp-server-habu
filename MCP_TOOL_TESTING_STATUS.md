@@ -254,6 +254,38 @@ Question: Does tool only work with client-hosted data connections?
 
 ---
 
+### 🚨 **start_aws_s3_connection_wizard**
+**Status**: ❌ **CRITICAL DESIGN FLAW - Universal AI Agent Issue**
+
+#### ❌ **Critical Issue Discovered:**
+- **Problem**: Wizard accepts AI-fabricated data instead of requiring real user input
+- **Impact**: ANY AI agent using this MCP server would create connections with fake data
+- **Not Memex-specific**: This would affect Claude, GPT, Gemini, or any AI agent
+- **Risk**: Users could unknowingly create unusable data connections
+
+#### 🔍 **What Happened:**
+```
+User Input: "Start AWS S3 wizard for customer transaction data"  
+AI Agent: Made up fake S3 path "s3://my-customer-data-bucket/transactions/..."
+Wizard: Accepted fake data and proceeded through entire flow
+Result: Would have created connection with non-existent S3 bucket
+```
+
+#### 🛠️ **Required Fixes:**
+1. **User Input Validation**: Wizard must explicitly prompt for real user information
+2. **Confirmation Checkpoints**: Require user confirmation before proceeding with data  
+3. **AI Agent Guards**: Detect and refuse AI-generated placeholder data
+4. **Interactive Design**: Force user interaction at critical data collection points
+
+#### 📊 **Universal Impact:**
+- **All AI Agents Affected**: Claude, GPT-4, Gemini, etc. would exhibit same behavior
+- **Root Cause**: Wizard design doesn't distinguish real vs fabricated input  
+- **Business Risk**: Users could create broken connections without realizing
+
+#### 🎯 **Status**: BLOCKED - Needs fundamental redesign for user input collection
+
+---
+
 ## 🎯 **Testing Priorities**
 
 ### **High Priority - Core Functionality**
