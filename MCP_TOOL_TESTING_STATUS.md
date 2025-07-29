@@ -11,6 +11,8 @@ This document tracks the testing status, learnings, and issues discovered for ea
 
 | Tool | Status | Issues | Priority |
 |------|--------|--------|----------|
+| list_credentials | ✅ **Verified** | None | - |
+| list_data_connections | ✅ **Verified** | None | - |
 | complete_data_connection_setup | ✅ **Verified** | None | - |
 | create_bigquery_connection_wizard | 🟡 **90% Complete** | API credential format | Medium |
 | configure_data_connection_fields | 🟡 **Needs Investigation** | Connection type compatibility | High |
@@ -135,6 +137,66 @@ Question: Does tool only work with client-hosted data connections?
 
 ---
 
+### ✅ **list_credentials**
+**Status**: ✅ **Verified Working - Resource Discovery**
+
+#### ✅ **Confirmed Functionality:**
+- **Comprehensive Listing**: Successfully lists all 6 organization credentials
+- **Essential Information**: Shows ID, type, source ID, managed status
+- **Real API Integration**: Direct connection to `/organization-credentials` endpoint
+- **Error Handling**: Graceful handling of empty results and API errors
+- **User Guidance**: Provides usage tips and context
+
+#### 📊 **Test Results:**
+```
+✅ API Endpoint: GET /organization-credentials working
+✅ Data Retrieved: 6 credentials successfully listed
+✅ Information Display: ID, type, source, managed status shown
+✅ Usage Guidance: Helpful tips provided
+✅ No Parameters: Simple execution, no input required
+```
+
+#### 💡 **Insights Discovered:**
+- **Available Credentials**: Habu AWS, Demo Connect, Snowflake, Test credentials
+- **Credential Types**: Mix of user-created and managed credentials
+- **Integration Value**: Essential for understanding available resources for data connections
+
+---
+
+### ✅ **list_data_connections**
+**Status**: ✅ **Verified Working - Comprehensive Resource Overview**
+
+#### ✅ **Confirmed Functionality:**
+- **Extensive Listing**: Successfully lists all 43 data connections
+- **Detailed Information**: Shows configuration status, source types, categories
+- **Status Insights**: Reveals connection stages (CONFIGURATION_COMPLETE, MAPPING_REQUIRED, etc.)
+- **Real API Integration**: Direct connection to `/data-connections` endpoint
+- **Resource Discovery**: Essential tool for understanding available data resources
+
+#### 📊 **Test Results:**
+```
+✅ API Endpoint: GET /data-connections working
+✅ Data Retrieved: 43 data connections successfully listed
+✅ Status Analysis: Multiple connection stages identified
+✅ Source Types: Client AWS S3, Google Cloud Storage, Local Upload, LiveRamp-Hosted
+✅ Categories: Ad Logs, CRM, Transactions, Generic, and more
+```
+
+#### 🔍 **Key Discoveries:**
+- **Connection Distribution**: Majority are Client AWS S3 connections
+- **Status Patterns**: Most connections are CONFIGURATION_COMPLETE (ready for use)
+- **Testing Data**: Several connections marked "[in testing]" from previous sessions
+- **Problem Identification**: 2 connections have CONFIGURATION_FAILED status
+- **Workflow Integration**: 1 connection in MAPPING_REQUIRED status (can use configure_data_connection_fields)
+
+#### 📈 **Strategic Value:**
+- **Resource Planning**: Shows what data is available for clean rooms
+- **Status Monitoring**: Identifies connections needing attention
+- **Integration Support**: Provides names/IDs for use in other tools
+- **Problem Detection**: Highlights failed configurations needing resolution
+
+---
+
 ### ✅ **test_connection**
 **Status**: ✅ **Verified Working**
 
@@ -213,9 +275,9 @@ Question: Does tool only work with client-hosted data connections?
 
 ## 📈 **Testing Progress**
 
-**Completed**: 6/37 tools (16.2%)  
+**Completed**: 8/39 tools (20.5%)  
 **In Progress**: 2 tools (credential debugging, connection type investigation)  
-**Verified Working**: 4 tools  
+**Verified Working**: 6 tools  
 **Issues Identified**: 2 tools  
 
 ---
