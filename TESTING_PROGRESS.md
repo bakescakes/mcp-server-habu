@@ -11,15 +11,17 @@
 
 ## 📋 Step-by-Step Testing Plan
 
-### ✅ COMPLETED TESTS (6/36)
+### ✅ COMPLETED TESTS (8/36)
 1. **`test_connection`** - ✅ PASSED - OAuth2 authentication working
 2. **`list_cleanrooms`** - ✅ ENHANCED - 9/11 UI fields retrieved (82% vs original 27%)
 3. **`list_questions`** - ✅ ENHANCED - 16+ comprehensive fields vs original 4 fields
 4. **`configure_data_connection_fields`** - ✅ VALIDATED - Intelligent error handling and parameter validation working
 5. **`complete_data_connection_setup`** - ✅ VALIDATED - Proper error handling and troubleshooting guidance
 6. **`create_aws_s3_connection`** - ✅ VALIDATED - Comprehensive validation and dry run functionality
+7. **`start_aws_s3_connection_wizard`** - ⚠️ KNOWN LIMITATION - Wizard accepts AI-fabricated data (affects all AI agents)
+8. **`invite_partner_to_cleanroom`** - ✅ VALIDATED - Excellent name resolution, permission validation, dry run mode, prevents self-invitations
 
-### 🎯 NEXT TOOL TO TEST: `start_aws_s3_connection_wizard`
+### 🎯 NEXT TOOL TO TEST: `execute_question_run`
 
 **Tool #7: `start_aws_s3_connection_wizard`**
 - **Category**: Foundation Tools
