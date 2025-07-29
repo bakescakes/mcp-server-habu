@@ -18,9 +18,17 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 
 ## 📊 API Coverage Status ✨ **UPDATED**
 - **Current Coverage**: 99% of total API functionality ⬆️ **+1%**
-- **Tools Implemented**: 37 comprehensive workflow tools
+- **Tools Implemented**: 39 comprehensive workflow tools
 - **Critical Gaps Resolved**: ✅ Data export jobs, ✅ Execution templates, ✅ User management
 - **Analysis**: See [API_COVERAGE_ANALYSIS.md](./API_COVERAGE_ANALYSIS.md) for detailed gap analysis
+
+## 🚀 Current Development: New Connection Wizards
+
+**Active Project**: Building high-value data connection wizards for enhanced platform coverage
+- **Target**: 6 new connection wizards for marketing and CRM platforms
+- **Plan**: [NEW_CONNECTION_WIZARDS_PLAN.md](./NEW_CONNECTION_WIZARDS_PLAN.md)
+- **Coverage Goal**: Increase data source coverage from 28.6% to 50%
+- **Priority Tools**: Google Ads Data Hub, Amazon Marketing Cloud, HubSpot, Salesforce
 
 ## OAuth2 Authentication Breakthrough
 
