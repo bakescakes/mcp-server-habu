@@ -296,6 +296,125 @@ Memex: [Exits Test Persona] Back to normal Memex mode. I can now debug the authe
 
 ---
 
+## 🛠️ Common Issues & Troubleshooting
+
+### **🚨 MCP Server Issues - RESTART FIRST!**
+
+**Rule #1**: When MCP Server tools are not functioning as expected, **ALWAYS restart the MCP server first** before debugging code.
+
+#### **Quick MCP Server Restart Process:**
+```
+1. Disable server: mcp_toggle_server("habu-cleanroom", false)
+2. Enable server: mcp_toggle_server("habu-cleanroom", true)  
+3. Test tool functionality
+```
+
+#### **When to Restart MCP Server:**
+- ✅ **After code changes** - Server caches the compiled code
+- ✅ **Tool returning old responses** - Cached behavior from previous version
+- ✅ **404 errors on working endpoints** - Server may be using outdated code
+- ✅ **Environment variable changes** - Server needs to reload configuration
+- ✅ **"Tool not working" reports** - Rule out caching issues first
+
+#### **MCP Server Troubleshooting Checklist:**
+
+**Step 1: Server Status Check**
+```
+mcp_list_servers() - Verify server is enabled and initialized
+```
+
+**Step 2: Restart Server**
+```
+mcp_toggle_server("habu-cleanroom", false)
+mcp_toggle_server("habu-cleanroom", true)
+```
+
+**Step 3: Test Basic Connectivity**
+```
+test_connection() - Verify OAuth2 and API access
+```
+
+**Step 4: Test Simple Tool**
+```
+list_cleanrooms() - Verify basic API calls work
+```
+
+**Step 5: If Still Failing - Check Code**
+- Verify `npm run build` completed successfully
+- Check environment variables in MCP configuration
+- Review error messages for API vs. code issues
+
+### **🔧 Common Development Issues**
+
+#### **Authentication Problems**
+- **Symptoms**: 401 errors, "authentication failed"
+- **Solutions**:
+  1. Verify `HABU_CLIENT_ID` and `HABU_CLIENT_SECRET` in MCP config
+  2. Check `.env` file has correct OAuth2 credentials
+  3. Test with `test_connection()` tool
+
+#### **API Endpoint Issues**  
+- **Symptoms**: 404 errors, endpoint not found
+- **Solutions**:
+  1. **Restart MCP server first!**
+  2. Verify endpoint in manual testing scripts
+  3. Check ID resolution (Display ID vs UUID vs name)
+
+#### **Parameter Issues**
+- **Symptoms**: 400 errors, validation failures
+- **Solutions**:
+  1. Check partition parameters are included for questions
+  2. Verify runtime parameter names match question requirements
+  3. Ensure proper parameter types (strings for all values)
+
+#### **Question Execution Issues**
+- **Symptoms**: Questions not triggering, timeout errors
+- **Solutions**:
+  1. Include required partition parameters (date ranges)
+  2. Set `monitorExecution: false` (questions take 15-30+ minutes)
+  3. Use proper date formats: "YYYY-MM-DD"
+
+### **📋 Testing Issues**
+
+#### **Test Persona vs Normal Mode Confusion**
+- **Problem**: Wrong mode for the task at hand
+- **Solution**: 
+  - Use `@test` for tool validation and user scenario testing
+  - Use `@normal` for development, debugging, and code changes
+
+#### **Mock vs Real API Issues**
+- **Problem**: Tool works in testing but not in production
+- **Solution**: Verify `USE_REAL_API=true` in MCP server environment
+
+### **🔍 Debugging Best Practices**
+
+#### **When Code Changes Don't Work:**
+1. **RESTART MCP SERVER FIRST** (cannot be emphasized enough!)
+2. Verify `npm run build` completed without errors
+3. Check git commits to ensure changes were saved
+4. Test manually with debug scripts before assuming MCP issue
+
+#### **When APIs Fail:**
+1. Test with manual scripts first (e.g., `node test-oauth.js`)
+2. Check authentication with `test_connection()` tool
+3. Verify endpoints and parameters with Habu API documentation
+4. Check rate limiting and API quotas
+
+#### **When Tools Return Old Behavior:**
+1. **Restart MCP server immediately**
+2. Don't waste time debugging "phantom" issues
+3. Server caching is the most common cause of this
+
+### **⚠️ Critical Reminders**
+
+- **Never debug MCP tools without restarting the server first**
+- **Manual testing success + MCP failure = Server restart needed** 
+- **Code changes require server restart to take effect**
+- **Environment variable changes require server restart**
+- **When in doubt, restart the server**
+
+---
+
 ## 🔄 Development Workflows
 
 ### Git Workflow
