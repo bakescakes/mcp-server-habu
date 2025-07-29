@@ -310,16 +310,19 @@ Result: Would have created connection with non-existent S3 bucket
 
 #### 🎯 **Key Features Validated:**
 - **Multi-Format Support**: Accepts cleanroom names, Display IDs, UUIDs
-- **Business Logic**: Prevents self-invitations and validates permissions
+- **Self-Invitation Support**: ✅ **ENHANCED** - Now explicitly supports self-invitations for demo/testing scenarios
 - **Testing Mode**: Dry run allows safe testing without sending emails
 - **User Experience**: Clear feedback with actionable next steps
 - **Security**: Proper permission validation before invitation attempts
+- **Demo-Friendly**: Special messaging and guidance for self-invitation workflows
 
 #### 📈 **User Impact:**
 - **High Value**: Essential collaboration tool for multi-partner cleanrooms
+- **Demo-Ready**: ✅ **ENHANCED** - Perfect for self-invitation demo scenarios and testing workflows
 - **Reliable**: Robust error handling and validation
 - **Safe**: Dry run mode prevents accidental invitations
 - **Production Ready**: Comprehensive validation and permission checking
+- **User-Friendly**: Special guidance for demo setups and self-invitations
 
 ---
 
