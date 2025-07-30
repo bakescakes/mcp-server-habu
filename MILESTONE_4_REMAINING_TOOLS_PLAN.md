@@ -30,8 +30,8 @@
 - Provide real-time execution status updates
 - Handle execution failures gracefully
 
-### **Tool 2: `question_run_monitoring_dashboard`**
-**Purpose**: Real-time status tracking and progress updates  
+### **Tool 2: `check_question_run_status`**
+**Purpose**: Point-in-time status checking and execution details  
 **API Coverage**: `/cleanroom-question-runs/{runId}` (GET)  
 **Implementation**:
 - Monitor multiple question runs simultaneously

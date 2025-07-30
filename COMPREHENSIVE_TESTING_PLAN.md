@@ -54,7 +54,7 @@
 | Tool | Status | Test Focus | Expected Real-World Result |
 |------|--------|------------|----------------------------|
 | `execute_question_run` | ⏳ | Real-time execution | Question run starts in Habu UI |
-| `question_run_monitoring_dashboard` | ⏳ | Progress tracking | Real status updates from API |
+| `check_question_run_status` | ⏳ | Status checking | Real status updates from API |
 | `results_access_and_export` | ⏳ | Result retrieval | Actual results exported |
 | `scheduled_run_management` | ⏳ | Schedule management | Schedule changes applied |
 

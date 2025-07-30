@@ -195,7 +195,7 @@ The server will be built using:
 
 #### **Advanced Execution & Results (4 tools)**
 - `execute_question_run` - Real-time question execution
-- `question_run_monitoring_dashboard` - Comprehensive execution monitoring
+- `check_question_run_status` - Point-in-time status checking
 - `results_access_and_export` - Multi-format result processing
 - `scheduled_run_management` - Recurring execution automation
 
@@ -819,7 +819,7 @@ Successfully completed Milestone 1: Partner Collaboration Workflows with the fin
 5. `manage_question_permissions` - Question access control
 
 #### **Phase 3 Critical Operations**:
-6. `question_run_monitoring_dashboard` - Run monitoring
+6. `check_question_run_status` - Status checking
 7. `results_access_and_export` - Result access
 8. `scheduled_run_management` - Schedule management
 9. `update_cleanroom_configuration` ✅ **ENHANCED**

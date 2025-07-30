@@ -43,7 +43,7 @@ The Habu MCP Server is currently configured and active in Memex with the followi
 - `manage_dataset_permissions`, `dataset_transformation_wizard`
 
 #### Execution & Results (4)
-- `execute_question_run`, `question_run_monitoring_dashboard`
+- `execute_question_run`, `check_question_run_status`
 - `results_access_and_export`, `scheduled_run_management`
 
 #### Clean Room Lifecycle (4)

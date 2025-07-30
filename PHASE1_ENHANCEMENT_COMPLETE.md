@@ -84,7 +84,7 @@ response += `*Resolved from: ${cleanroomIdOrName}*\n`;
 - `manage_question_permissions`
 
 **Critical Operations (4 remaining):**
-- `question_run_monitoring_dashboard`
+- `check_question_run_status`
 - `results_access_and_export`
 - `cleanroom_health_monitoring` 
 - `cleanroom_access_audit`

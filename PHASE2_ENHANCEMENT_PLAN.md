@@ -67,7 +67,7 @@
 ### **Phase 2C: Critical Operations (Batch 3 - 5 tools)**
 **Estimated Time**: 60 minutes
 **Tools**:
-6. `question_run_monitoring_dashboard`
+6. `check_question_run_status`
 7. `results_access_and_export`
 8. `scheduled_run_management`
 9. `cleanroom_health_monitoring`

@@ -43,10 +43,10 @@ Based on comprehensive analysis of the LiveRamp Clean Room API specification and
 
 #### Question Execution & Results
 - ✅ `createCleanroomQuestionRun` → `execute_question_run`
-- ✅ `getAllCleanroomQuestionRuns` → `question_run_monitoring_dashboard`
-- ✅ `getCleanroomQuestionRunById` → `question_run_monitoring_dashboard`
-- ✅ `updateCleanroomQuestionRunStatus` → `question_run_monitoring_dashboard`
-- ✅ `deleteCleanroomQuestionRun` → `question_run_monitoring_dashboard`
+- ✅ `getAllCleanroomQuestionRuns` → `check_question_run_status`
+- ✅ `getCleanroomQuestionRunById` → `check_question_run_status`
+- ✅ `updateCleanroomQuestionRunStatus` → `check_question_run_status`
+- ✅ `deleteCleanroomQuestionRun` → `check_question_run_status`
 - ✅ `getCleanroomQuestionRunData` → `results_access_and_export`
 - ✅ `getCleanroomQuestionRunOutputFile` → `results_access_and_export`
 - ✅ `getCleanroomQuestionRunDataCount` → `results_access_and_export`

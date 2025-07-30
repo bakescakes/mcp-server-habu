@@ -85,7 +85,7 @@ Building on our successful foundation (OAuth2 authentication, clean room creatio
 
 **Tools to Build**:
 - **`execute_question_run`** - Run questions with runtime parameters and monitoring
-- **`question_run_monitoring_dashboard`** - Real-time status tracking and progress updates
+- **`check_question_run_status`** - Point-in-time status checking and execution details
 - **`results_access_and_export`** - Retrieve, format, and export question results
 - **`scheduled_run_management`** - Manage recurring question executions
 

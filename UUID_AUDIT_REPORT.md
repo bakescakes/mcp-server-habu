@@ -71,7 +71,7 @@
     - **Issue**: Requires `cleanroomId` + `questionId` (UUIDs)
     - **Fix**: Add cleanroom name + question name lookup
 
-16. **`question_run_monitoring_dashboard`**
+16. **`check_question_run_status`**
     - **Issue**: Requires `cleanroomId` (UUID), optional `runIds`
     - **Fix**: Add cleanroom name lookup
 
