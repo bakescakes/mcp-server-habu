@@ -105,6 +105,110 @@
 
 ---
 
+## 📋 **REACT WEBSITE SECTION MAPPING**
+
+### **🎯 Complete Data Source Mapping for All React Sections**
+
+#### **1. Key Learnings Section** 🧠
+**Primary Data Sources**:
+- **BATCH_EXECUTION_TESTING_LOG.md** 🔬 *[Major testing breakthroughs and discoveries]*
+- **MCP_TOOL_TESTING_STATUS.md** 🎖️ *[Tool-specific learnings and insights]*
+- **Git commit history** *[Technical breakthroughs and implementation successes]*
+
+**Content to Extract**:
+```javascript
+// From BATCH_EXECUTION_TESTING_LOG.md:
+- "Critical Discovery: MCP Server Caching Issue" → Technical Learning
+- "Smart Parameter Detection Implementation" → Intelligence Breakthrough  
+- "Production API Validation Success" → Business Learning
+
+// From MCP_TOOL_TESTING_STATUS.md:
+- Tool-specific insights and methodology improvements
+- API behavior discoveries and edge cases
+- User experience enhancements from testing
+
+// From Git commits:
+- Major breakthrough commits (OAuth2, Universal Resolution, Smart Detection)
+- Implementation milestones and technical victories
+```
+
+#### **2. Known Limitations Section** ⚠️
+**Primary Data Sources**:
+- **MCP_TOOL_TESTING_STATUS.md** 🎖️ *[Issues found during testing]*
+- **TESTING_PROGRESS.md** 📈 *[Known testing constraints and API limitations]*
+- **MCP_TOOLS_REFERENCE_DETAILED.md** 🥉 *[Technical constraints and implementation notes]*
+
+**Content to Extract**:
+```javascript
+// From MCP_TOOL_TESTING_STATUS.md:
+- 🟡 **Partial** status tools → Known limitations and workarounds
+- ❌ **Issues** found → Current problems and resolution status
+- Tool-specific constraints and requirements
+
+// From TESTING_PROGRESS.md:
+- "Testing Constraints" section → Production API limitations
+- "Business Hour Testing" → Operational constraints
+- "User Account Dependencies" → Setup limitations
+
+// From MCP_TOOLS_REFERENCE_DETAILED.md:
+- API rate limiting information
+- Authentication constraints
+- Platform-specific limitations
+```
+
+#### **3. Work To Do Section** 📋
+**Primary Data Sources**:
+- **TESTING_PROGRESS.md** 📈 *[Testing queue and priorities]*
+- **MCP_TOOL_TESTING_STATUS.md** 🎖️ *[Issues requiring resolution]*
+- **STATUS.json** 📱 *[Next tool targets and current phase]*
+
+**Content to Extract**:
+```javascript
+// From TESTING_PROGRESS.md:
+- "Testing Queue (Prioritized Order)" → Remaining work by phase
+- Phase completion percentages → Progress tracking
+- "NEXT TOOL TO TEST" → Immediate priorities
+
+// From MCP_TOOL_TESTING_STATUS.md:
+- 🟡 **Partial** tools → Work needed to complete
+- ❌ **Issues** → Bug fixes and investigations required
+- **Next Tool Target** → Testing priorities
+
+// From STATUS.json:
+- testing.nextTool → Current focus
+- testing.currentPhase → Phase-based work organization
+```
+
+#### **4. Documentation Hub Section** 📚
+**Primary Data Sources**:
+- **STATUS.json** 📱 *[Complete documentation inventory]*
+- **All .md files** *[Live documentation content]*
+- **File metadata** *[Update timestamps and file sizes]*
+
+**Content to Extract**:
+```javascript
+// From STATUS.json documentation section:
+{
+  "documentation": {
+    "toolsReference": "MCP_TOOLS_REFERENCE.md",
+    "detailedReference": "MCP_TOOLS_REFERENCE_DETAILED.md", 
+    "testingStatus": "MCP_TOOL_TESTING_STATUS.md",
+    "testingEvidence": "BATCH_EXECUTION_TESTING_LOG.md",
+    "reactGuide": "REACT_WEBSITE_GUIDE.md",
+    "projectRules": "RULES.md",
+    "readme": "README.md"
+  }
+}
+
+// Live file content consumption:
+- Real-time markdown rendering
+- File size and last modified timestamps
+- Search functionality across all documentation
+- Category-based organization (Setup, Testing, Technical, etc.)
+```
+
+---
+
 ## 🔄 **Data Consumption Strategy**
 
 ### **For Real-Time Dashboard**:
@@ -126,6 +230,70 @@ const metrics = {
 // Parse MCP_TOOLS_REFERENCE.md for tool categories and descriptions
 // Display as expandable sections with search functionality
 // Link to detailed technical reference for developers
+```
+
+### **For Key Learnings Section**:
+```javascript
+// Consume BATCH_EXECUTION_TESTING_LOG.md for major discoveries
+const learnings = await fetch('/api/files/BATCH_EXECUTION_TESTING_LOG.md').then(r => r.json());
+
+// Extract key learning sections:
+// - "Critical Discovery: MCP Server Caching Issue"
+// - "Parameter Validation Confirmed" 
+// - Technical breakthrough timeline and impact
+
+// Parse MCP_TOOL_TESTING_STATUS.md for tool-specific insights
+const testingStatus = await fetch('/api/files/MCP_TOOL_TESTING_STATUS.md').then(r => r.json());
+```
+
+### **For Known Limitations Section**:
+```javascript
+// Parse testing status for current issues
+const limitations = await fetch('/api/files/MCP_TOOL_TESTING_STATUS.md').then(r => r.json());
+
+// Extract:
+// - 🟡 Partial status tools → Known limitations
+// - ❌ Issue status tools → Current problems  
+// - Workarounds and resolution status
+
+// Parse detailed reference for technical constraints
+const technicalLimitations = await fetch('/api/files/MCP_TOOLS_REFERENCE_DETAILED.md').then(r => r.json());
+```
+
+### **For Work To Do Section**:
+```javascript
+// Parse testing progress for work queue
+const workToDo = await fetch('/api/files/TESTING_PROGRESS.md').then(r => r.json());
+
+// Extract:
+// - "Testing Queue (Prioritized Order)" → 8 phases of remaining work
+// - Phase completion percentages → Progress tracking
+// - "NEXT TOOL TO TEST" → Immediate priority
+
+// Combine with STATUS.json for current targets
+const status = await fetch('/api/files/STATUS.json').then(r => r.json());
+const nextTool = status.testing.nextTool;
+```
+
+### **For Documentation Hub Section**:
+```javascript
+// Use STATUS.json as index of all documentation
+const docIndex = await fetch('/api/files/STATUS.json').then(r => r.json());
+const documentList = docIndex.documentation;
+
+// For each document, fetch metadata and content
+const docDetails = await Promise.all(
+  Object.entries(documentList).map(async ([key, filename]) => {
+    const doc = await fetch(`/api/files/${filename}`).then(r => r.json());
+    return {
+      key,
+      filename, 
+      size: doc.size,
+      lastModified: doc.lastModified,
+      content: doc.content // For search functionality
+    };
+  })
+);
 ```
 
 ### **For Project Stats**:
@@ -172,18 +340,113 @@ const testingEvidence = {
 - **Status Dashboard**: Real-time stats from STATUS.json
 - **Key Features**: OAuth2 working, multi-cloud support, comprehensive workflows
 
-### **Documentation Section**:
-- **Getting Started**: Link to README.md setup instructions
-- **Tool Reference**: Interactive MCP_TOOLS_REFERENCE.md with search
-- **Technical Details**: Link to MCP_TOOLS_REFERENCE_DETAILED.md
-- **Testing Status**: Current progress from MCP_TOOL_TESTING_STATUS.md
-- **Testing Evidence**: Link to BATCH_EXECUTION_TESTING_LOG.md showing detailed validation
+### **Enhanced Sections** (All consuming live data):
+
+#### **Key Learnings Section**:
+- **Major Breakthroughs**: From BATCH_EXECUTION_TESTING_LOG.md discoveries
+- **Technical Victories**: OAuth2, Universal Resolution, Smart Detection
+- **Testing Insights**: Tool-specific learnings from MCP_TOOL_TESTING_STATUS.md
+- **Implementation Timeline**: Git commit history of achievements
+
+#### **Known Limitations Section**:
+- **Current Issues**: 🟡 Partial and ❌ Problem tools from testing status  
+- **API Constraints**: Rate limiting, authentication requirements
+- **Testing Limitations**: Production API constraints, business hour dependencies
+- **Workarounds**: Current solutions and resolution timeline  
+
+#### **Work To Do Section**:  
+- **Testing Queue**: 8-phase prioritized testing approach (34 remaining tools)
+- **Phase Progress**: Real-time completion percentages by category
+- **Next Priorities**: Current target tool and immediate focus areas
+- **Issue Resolution**: Active bug fixes and investigations
+
+#### **Documentation Hub Section**:
+- **Live Documentation**: Real-time rendering of all .md files
+- **Search Functionality**: Full-text search across all documentation
+- **Update Timestamps**: Show data freshness and last modified dates
+- **Category Organization**: Setup, Testing, Technical, Evidence sections
 
 ### **API Coverage Section**:
 - **Coverage Statistics**: 99% API coverage, 96/97 endpoints
 - **Tool Categories**: 8 categories with tool counts
 - **Multi-Cloud Support**: 14 data connection platforms
 - **Enterprise Features**: Advanced automation and governance
+
+---
+
+## 🔌 **RECOMMENDED API ENDPOINTS FOR REACT TEAM**
+
+### **Enhanced API Server Endpoints** (to add to `/api/server.cjs`):
+
+#### **For Key Learnings Section**:
+```javascript
+// GET /api/learnings
+// Parses BATCH_EXECUTION_TESTING_LOG.md + MCP_TOOL_TESTING_STATUS.md + git history
+// Returns structured learning data with categories and timeline
+```
+
+#### **For Known Limitations Section**:
+```javascript
+// GET /api/limitations  
+// Parses testing status for issues + technical constraints
+// Returns categorized limitations with severity and workarounds
+```
+
+#### **For Work To Do Section**:
+```javascript
+// GET /api/work-queue
+// Parses TESTING_PROGRESS.md testing queue + STATUS.json priorities
+// Returns prioritized work items by phase with completion percentages
+```
+
+#### **For Documentation Hub Section**:
+```javascript
+// GET /api/documentation-index
+// Uses STATUS.json documentation section + file metadata
+// Returns complete documentation inventory with timestamps and sizes
+
+// GET /api/documentation/search?q=query
+// Full-text search across all .md files
+// Returns search results with context and file references
+```
+
+### **Enhanced Data Processing Examples**:
+
+#### **Learning Extraction Logic**:
+```javascript
+// Parse BATCH_EXECUTION_TESTING_LOG.md for discovery sections
+const learningRegex = /## 🚨 \*\*Critical Discovery:(.*?)\n\n### \*\*Root Cause Identified\*\*(.*?)$/gm;
+
+// Extract major breakthroughs from testing status
+const breakthroughRegex = /✅ \*\*(.*?)\*\* - (.*?)$/gm;
+
+// Structure as timeline with impact categories
+```
+
+#### **Limitation Classification Logic**:
+```javascript
+// Parse testing status for issue types
+const limitationTypes = {
+  'api-integration': /API Integration/gi,
+  'user-experience': /User Experience/gi, 
+  'technical-debt': /Technical/gi,
+  'testing-constraints': /Testing/gi
+};
+
+// Extract severity levels and workarounds
+const severityMap = { '🔴': 'high', '🟡': 'medium', '🟢': 'low' };
+```
+
+#### **Work Queue Processing Logic**:
+```javascript
+// Parse TESTING_PROGRESS.md for phase structure
+const phaseRegex = /### \*\*Phase (\d+): (.*?) \((\d+) remaining\)\*\*/gm;
+
+// Calculate completion percentages
+const completionCalc = (tested, total) => Math.round((tested / total) * 100);
+
+// Priority ordering based on phase and tool category
+```
 
 ---
 

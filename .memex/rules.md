@@ -691,7 +691,7 @@ Add to MCP client configuration:
 
 ### **📱 React Website Priority Documents**
 
-#### **Primary Data Sources** (React should poll these):
+#### **Primary Data Sources** (React should consume):
 1. **STATUS.json** 🥇 *[Real-time project status]*
    - Current tool counts and testing progress
    - Next priorities and recent achievements
@@ -701,6 +701,27 @@ Add to MCP client configuration:
    - Human-readable tool descriptions and usage examples
    - Organized by categories for UI navigation
    - Complete tool functionality overview
+
+#### **Enhanced Data Sources** (React should consume):
+3. **MCP_TOOLS_REFERENCE_DETAILED.md** 🥉 *[Technical implementation details]*
+   - Complete API analysis with 100+ endpoints documented
+   - Built-in intelligence and automation workflows
+   - Cross-tool dependency analysis and technical insights
+
+4. **MCP_TOOL_TESTING_STATUS.md** 🎖️ *[Testing progress and validation]*
+   - Tool-by-tool testing outcomes and detailed issues
+   - Key learnings and insights from testing
+   - Known limitations and workarounds
+
+5. **BATCH_EXECUTION_TESTING_LOG.md** 🔬 *[Testing evidence and validation]*
+   - Major testing breakthroughs and technical discoveries
+   - Real production testing evidence with run IDs and timestamps
+   - Comprehensive validation methodology and insights
+
+6. **TESTING_PROGRESS.md** 📈 *[Testing methodology and work queue]*
+   - Prioritized testing queue across 8 phases (34 remaining tools)
+   - Phase completion percentages and progress tracking
+   - Testing methodology and evidence sources
 
 #### **Secondary References** (React can link to these):
 3. **MCP_TOOLS_REFERENCE_DETAILED.md** 🥉 *[Technical implementation details]*
