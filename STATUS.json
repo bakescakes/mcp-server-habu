@@ -53,10 +53,12 @@
   ],
   "documentation": {
     "toolsReference": "MCP_TOOLS_REFERENCE.md",
+    "detailedReference": "MCP_TOOLS_REFERENCE_DETAILED.md",
     "testingStatus": "MCP_TOOL_TESTING_STATUS.md",
+    "testingEvidence": "BATCH_EXECUTION_TESTING_LOG.md",
+    "reactGuide": "REACT_WEBSITE_GUIDE.md",
     "projectRules": "RULES.md",
-    "readme": "README.md",
-    "cleanupStatus": "Audit complete, 39 files identified for archival"
+    "readme": "README.md"
   },
   "recentAchievements": [
     "Smart partition parameter detection for question execution",
