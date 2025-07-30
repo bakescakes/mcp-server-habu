@@ -22,6 +22,18 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 - **Data Source Coverage**: 50% (14/28 sources) ⬆️ **+21.4% INCREASE**
 - **Critical Gaps Resolved**: ✅ Data export jobs, ✅ Execution templates, ✅ User management, ✅ Major platform integration
 
+## 🔧 **Recent Debug Victory: Question Run Monitoring** ✨ **FIXED**
+
+**Issue Discovered**: `question_run_monitoring_dashboard` tool returning 404 errors  
+**Root Cause**: Habu API doesn't provide cleanroom-level question run monitoring endpoint  
+**Solution Implemented**: 
+- ✅ API-aware monitoring for specific run IDs using `/cleanroom-question-runs/{runId}` endpoint
+- ✅ Comprehensive user guidance explaining API limitations and alternatives  
+- ✅ Fixed variable scoping bug (`cleanroomId` vs `actualCleanroomId`)
+- ✅ Enhanced tool to provide educational value about API structure
+
+**Result**: Tool now works correctly and provides valuable monitoring capability for specific runs with clear guidance for comprehensive monitoring.
+
 ## 🧠 BREAKTHROUGH: Smart Detection for Question Execution ✨ **NEW**
 
 **Status**: ✅ **SUCCESSFULLY IMPLEMENTED** - Intelligent partition parameter detection  
