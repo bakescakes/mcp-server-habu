@@ -22,7 +22,7 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 - **Data Source Coverage**: 50% (14/28 sources) ⬆️ **+21.4% INCREASE**
 - **Critical Gaps Resolved**: ✅ Data export jobs, ✅ Execution templates, ✅ User management, ✅ Major platform integration
 
-## 🔧 **Recent Debug Victory: Question Run Monitoring** ✨ **FIXED**
+## 🔧 **Recent Debug Victory: Question Run Status Tool** ✨ **FIXED & RENAMED**
 
 **Issue Discovered**: `question_run_monitoring_dashboard` tool incorrectly reporting successful runs as failed  
 **Root Cause Analysis**: 
@@ -41,7 +41,14 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 - Example: "1753844461752" = JavaScript timestamp = July 29, 2025, 11:08:33 PM
 - Provides unique identification and timing correlation
 
-**Result**: Tool now provides accurate status reporting and helpful context rather than incorrectly flagging successful runs as failed.
+**Solution Implemented**: 
+- ✅ Enhanced error handling with contextual messages for 404/403/401 responses
+- ✅ Changed confusing "ERROR" status to "API_ERROR" with explanatory context
+- ✅ Added notes explaining that 404 may indicate completed-but-archived runs
+- ✅ **RENAMED TOOL**: `question_run_monitoring_dashboard` → `check_question_run_status`
+- ✅ Updated description to clarify it provides point-in-time status checks (not continuous monitoring)
+
+**Result**: Tool now provides accurate status reporting with a name that matches its actual functionality.
 
 ## 🧠 BREAKTHROUGH: Smart Detection for Question Execution ✨ **NEW**
 
