@@ -594,27 +594,32 @@ This comprehensive guide documents all **45 MCP tools** with detailed technical 
 
 ---
 
-### results_access_and_export
-**Purpose:** Comprehensive result retrieval and export with multi-format support, advanced filtering, and data quality validation.
+### results_access_and_export ⭐ **ENHANCED**
+**Purpose:** Intelligent result retrieval with smart question discovery, multi-format export, and guided workflow integration.
 
 **What it bundles:**
+- **Smart Discovery**: Question-based lookup with intelligent run ID resolution
+- **Workflow Guidance**: Interactive help mode with step-by-step instructions
+- **API Limitation Awareness**: Transparent communication about discovery constraints
 - Multi-format result export with intelligent format optimization (JSON, CSV, Excel, summary)
 - Advanced filtering capabilities with type-aware operations and business logic
 - Column selection with metadata preservation and schema validation
 - File export with secure download management and customizable naming conventions
-- Data quality validation with completeness reporting and integrity checking
+- Integration guidance for seamless workflow between execute_question_run and results access
 
 **API Functions Used:**
-- `GET /runs/{runId}/results` - Result data retrieval with pagination and filtering support
-- `GET /runs/{runId}/metadata` - Result metadata, schema information, and quality metrics
-- `POST /runs/{runId}/export` - Export job creation with format optimization
-- `GET /export-jobs/{jobId}/status` - Export progress monitoring and completion tracking
+- `GET /cleanrooms/{cleanroomId}/questions` - Available questions discovery for help mode
+- `GET /cleanroom-question-runs/{runId}/data` - Direct result data retrieval
+- Result metadata parsing with schema information and quality metrics
+- Format optimization and export processing
 
 **User input needed:**
 - cleanroomId: Cleanroom name, Display ID (CR-XXXXXX), or UUID (required)
-- runId: Question run ID for result retrieval (required)
+- runId: Question run ID for direct result access (optional - for immediate retrieval)
+- questionId: Question name, Display ID (CRQ-XXXXXX), or UUID (optional - for guided lookup)
+- helpMode: Show available questions and workflow guidance (optional, defaults to false)
 - format: Output format with intelligent optimization (json, csv, excel, summary) (optional)
-- includeColumns: Comma-separated list of specific columns to include (optional - includes all if omitted)
+- includeColumns: Comma-separated list of specific columns to include (optional)
 - filterCriteria: Advanced filtering parameters with type-aware operations (optional)
 - saveToFile: Enable secure file export (optional, defaults to false)
 - fileName: Custom filename with extension auto-detection (optional)

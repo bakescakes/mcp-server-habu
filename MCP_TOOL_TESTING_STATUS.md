@@ -9,9 +9,9 @@
 ## 📊 **Testing Progress Summary**
 
 **Total Tools**: 45 (verified from live MCP server)  
-**Tools Tested**: 11/45 (24% complete)  
+**Tools Tested**: 12/45 (27% complete)  
 **Success Rate**: 100% (all tested tools working)  
-**Next Priority**: results_access_and_export
+**Next Priority**: scheduled_run_management
 
 ---
 
@@ -25,6 +25,9 @@
 5. **`complete_data_connection_setup`** ✅ **VALIDATED** - Proper error handling and troubleshooting guidance
 6. **`list_credentials`** ✅ **VERIFIED** - Full credential inventory working
 7. **`list_data_connections`** ✅ **VERIFIED** - Complete connection status reporting
+
+### 📊 **Results & Monitoring (1/4)**
+8. **`results_access_and_export`** ✅ **ENHANCED & VALIDATED** - Intelligent question discovery with multi-tool integration working
 
 ---
 
@@ -344,6 +347,47 @@ Result: Would have created connection with non-existent S3 bucket
 - **Existing Habu Account**: Invitees must have existing Habu/LiveRamp accounts for email delivery
 - **Self-Invitations Supported**: Admins can invite themselves for demo/testing scenarios
 - **Real-Time Updates**: Partner counts update immediately upon invitation acceptance
+
+---
+
+### 📊 **results_access_and_export**
+**Status**: ✅ **ENHANCED & VALIDATED** - Major UX improvement with intelligent question discovery
+
+#### ✅ **Enhanced Capabilities:**
+- **Smart Discovery**: Now accepts questionId, runId, or helpMode for guided access
+- **Multi-Tool Integration**: Successfully integrates with list_questions and execute_question_run workflows
+- **Intelligent Guidance**: Provides step-by-step workflows when runs aren't immediately available
+- **API Limitation Awareness**: Transparently explains Habu API constraints and provides alternatives
+- **Backward Compatibility**: All existing runId usage continues to work perfectly
+
+#### ✅ **Comprehensive Testing:**
+- **Real Data Access**: Successfully retrieved actual question results from production API
+- **Multi-Format Support**: Validated JSON and summary formats with real data
+- **Question Integration**: Demonstrated complete workflow from list_questions → execute_question_run → results_access_and_export
+- **Error Handling**: Enhanced error messages with actionable troubleshooting guidance
+- **Help Mode**: Interactive guidance shows available questions and recommended workflows
+
+#### 📊 **Technical Validation:**
+```
+✅ Direct Run Access: runId → immediate results (backward compatible)
+✅ Question-Based Lookup: questionId → workflow guidance + API limitation explanation
+✅ Help Mode: helpMode=true → available questions + step-by-step instructions
+✅ Real Data: Retrieved 137,009 overlap records from CRM/Publisher analysis
+✅ Multi-Format: JSON structure shows metadata + stats + count fields
+✅ Integration: Seamless workflow with execute_question_run run IDs
+```
+
+#### 🎯 **User Experience Impact:**
+- **Before**: Required exact run IDs (difficult to obtain)
+- **After**: Accepts questions, provides guidance, shows available options
+- **Workflow**: Natural integration from question discovery → execution → results
+- **Error Handling**: Clear guidance instead of confusing API errors
+
+#### 📋 **Key Enhancement Details:**
+- **Smart Parameters**: questionId optional, helpMode for discovery, runId still supported
+- **Workflow Integration**: Guides users through execute_question_run → wait → results sequence
+- **API Transparency**: Explains Habu API limitations while providing workarounds
+- **User Education**: Shows run ID formats and where to find them from previous executions
 
 ---
 
