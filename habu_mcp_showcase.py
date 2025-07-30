@@ -15,11 +15,26 @@ import json
 
 # Page config
 st.set_page_config(
-    page_title="🚀 Habu MCP Server Showcase",
+    page_title="Habu MCP Server Project Overview",
     page_icon="🚀",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Force sidebar to stay open
+st.markdown("""
+<style>
+    .sidebar .sidebar-content {
+        width: 300px;
+    }
+    section[data-testid="stSidebar"] {
+        width: 300px !important;
+    }
+    section[data-testid="stSidebar"] > div {
+        width: 300px !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # Custom CSS for better styling
 st.markdown("""
@@ -44,11 +59,23 @@ st.markdown("""
     }
     
     .tool-card {
-        border: 1px solid #ddd;
+        border: 2px solid #e9ecef;
         border-radius: 10px;
-        padding: 1rem;
-        margin: 0.5rem 0;
-        background: #f8f9fa;
+        padding: 1.2rem;
+        margin: 0.8rem 0;
+        background: white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .tool-card h4 {
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+    }
+    
+    .tool-card p {
+        margin-bottom: 0.4rem;
+        font-size: 0.95rem;
+        line-height: 1.4;
     }
     
     .status-verified { color: #28a745; font-weight: bold; }
@@ -308,21 +335,11 @@ def get_tool_categories():
 
 def main():
     # Header
-    st.markdown('<h1 class="main-header">🚀 Habu MCP Server Showcase</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">Habu MCP Server Project Overview</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align: center; font-size: 1.3rem; color: #666;">Model Context Protocol Server for LiveRamp Clean Room API</p>', unsafe_allow_html=True)
     
     # Sidebar navigation
     st.sidebar.title("🧭 Navigation")
-    
-    # Flex mode toggle
-    st.sidebar.markdown("---")
-    flex_mode = st.sidebar.toggle("🚀 **FLEX MODE**", value=False, help="Emphasize achievements and success stories")
-    if flex_mode:
-        st.sidebar.success("Showing achievements and success stories!")
-    else:
-        st.sidebar.info("Showing balanced view with limitations")
-    
-    st.sidebar.markdown("---")
     
     page = st.sidebar.selectbox("Choose a section:", [
         "🏠 Project Overview", 
@@ -334,36 +351,26 @@ def main():
         "📚 Documentation Hub"
     ])
     
-    # Pass flex_mode to the functions
+    # Route to functions without flex_mode
     if page == "🏠 Project Overview":
-        show_project_overview(flex_mode)
+        show_project_overview()
     elif page == "🛠️ MCP Tools Explorer":
-        show_tools_explorer(flex_mode)
+        show_tools_explorer()
     elif page == "📊 Testing Dashboard":
-        show_testing_dashboard(flex_mode)
+        show_testing_dashboard()
     elif page == "🧠 Key Learnings":
-        show_key_learnings(flex_mode)
+        show_key_learnings()
     elif page == "⚠️ Known Limitations":
-        show_limitations(flex_mode)
+        show_limitations()
     elif page == "🎯 Work To Do":
-        show_work_to_do(flex_mode)
+        show_work_to_do()
     elif page == "📚 Documentation Hub":
-        show_documentation_hub(flex_mode)
+        show_documentation_hub()
     
 
 
-def show_project_overview(flex_mode=False):
-    if flex_mode:
-        st.header("🚀 HABU MCP SERVER: THE ULTIMATE ACHIEVEMENT!")
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                    padding: 2rem; border-radius: 15px; color: white; text-align: center; margin: 1rem 0;">
-            <h2>🏆 WE BUILT SOMETHING INCREDIBLE! 🏆</h2>
-            <p style="font-size: 1.2rem;">99% API Coverage • 45 Intelligent Tools • Enterprise Ready • OAuth2 Mastery</p>
-        </div>
-        """, unsafe_allow_html=True)
-    else:
-        st.header("🏠 Project Overview")
+def show_project_overview():
+    st.header("🏠 Project Overview")
     
     # File update status
     st.subheader("📊 Live Project Status")
@@ -434,14 +441,14 @@ def show_project_overview(flex_mode=False):
     """)
     
     # Major achievements
-    st.subheader("🏆 Major Achievements")
+    st.subheader("🏆 Key Achievements")
     achievements = [
-        "✅ **OAuth2 Authentication Breakthrough** - Working with production API after extensive testing",
+        "✅ **OAuth2 Authentication** - Working with production API after extensive testing",
         "✅ **Universal Name Resolution** - Users can use cleanroom names instead of cryptic UUIDs",
         "✅ **Smart Parameter Detection** - Intelligent SQL analysis prevents zero-result queries", 
-        "✅ **Complete End-to-End Validation** - Partner invitation workflow fully tested",
-        "✅ **Enterprise-Grade Features** - Bulk operations, templates, advanced exports",
-        "✅ **99% API Coverage** - Most comprehensive clean room automation platform"
+        "✅ **End-to-End Validation** - Partner invitation workflow fully tested",
+        "✅ **Enterprise Features** - Bulk operations, templates, advanced exports",
+        "✅ **99% API Coverage** - Comprehensive clean room automation platform"
     ]
     
     for achievement in achievements:
@@ -455,12 +462,8 @@ def show_project_overview(flex_mode=False):
     foundation with enormous potential, but systematic testing is needed to unlock full value.
     """)
 
-def show_tools_explorer(flex_mode=False):
-    if flex_mode:
-        st.header("🛠️ 45 POWERFUL WORKFLOW TOOLS!")
-        st.markdown("### 🎯 Every Tool is a Masterpiece of API Integration")
-    else:
-        st.header("🛠️ MCP Tools Explorer")
+def show_tools_explorer():
+    st.header("🛠️ MCP Tools Explorer")
     st.markdown("Explore all 45 workflow tools organized by category")
     
     # Auto-refresh toggle
@@ -557,20 +560,24 @@ def show_tools_explorer(flex_mode=False):
                         icon = "⚪"
                         css_class = "status-untested"
                     
-                    # Create expandable tool card
+                    # Create better tool card layout
                     with st.container():
-                        col1, col2 = st.columns([4, 1])
-                        with col1:
-                            st.markdown(f"""
-                            <div class="tool-card">
-                                <h4>{icon} <span class="{css_class}">{tool}</span></h4>
-                                <p><strong>Status:</strong> {status_info['status']}</p>
-                                <p><strong>Issues:</strong> {status_info.get('issues', 'None')}</p>
-                                <p><strong>Priority:</strong> {status_info.get('priority', '-')}</p>
+                        # Main tool info
+                        st.markdown(f"""
+                        <div class="tool-card">
+                            <h4>{icon} <span class="{css_class}">{tool}</span></h4>
+                            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                                <div><strong>Status:</strong> {status_info['status']}</div>
+                                <div><strong>Issues:</strong> {status_info.get('issues', 'None')}</div>
+                                <div><strong>Priority:</strong> {status_info.get('priority', '-')}</div>
                             </div>
-                            """, unsafe_allow_html=True)
-                        with col2:
-                            if st.button(f"📖 Details", key=f"details_{tool}"):
+                        </div>
+                        """, unsafe_allow_html=True)
+                        
+                        # Details button (smaller, inline)
+                        col1, col2, col3 = st.columns([1, 1, 4])
+                        with col1:
+                            if st.button(f"📖 Details", key=f"details_{tool}", use_container_width=True):
                                 show_tool_details(tool, status_info)
 
 def show_tool_details(tool_name, status_info):
@@ -614,12 +621,8 @@ def show_tool_details(tool_name, status_info):
         for step in status_info['next_steps']:
             st.markdown(f"- {step}")
 
-def show_testing_dashboard(flex_mode=False):
-    if flex_mode:
-        st.header("📊 RIGOROUS VALIDATION PROVES EXCELLENCE!")
-        st.success("Every tested tool demonstrates production-ready quality and intelligent design!")
-    else:
-        st.header("📊 Testing Dashboard")
+def show_testing_dashboard():
+    st.header("📊 Testing Dashboard")
     
     # Parse testing data
     tool_status = parse_tool_testing_status()
@@ -737,17 +740,13 @@ def show_testing_dashboard(flex_mode=False):
         issue_count = len(df[df['status'] == 'issue'])
         st.metric("Issues Found", issue_count)
 
-def show_key_learnings(flex_mode=False):
-    if flex_mode:
-        st.header("🧠 BREAKTHROUGH DISCOVERIES!")
-        st.markdown("### 🎯 Every Challenge Conquered Led to Innovation")
-    else:
-        st.header("🧠 Key Learnings")
+def show_key_learnings():
+    st.header("🧠 Key Learnings")
     
     learnings = [
         {
-            "title": "🔐 OAuth2 Authentication Breakthrough",
-            "description": "After extensive testing, discovered the correct OAuth2 implementation: Secondary API key = CLIENT_ID, Primary API key = CLIENT_SECRET. This breakthrough enabled production API access.",
+            "title": "🔐 OAuth2 Authentication",
+            "description": "After extensive testing, discovered the correct OAuth2 implementation: Secondary API key = CLIENT_ID, Primary API key = CLIENT_SECRET. This enabled production API access.",
             "impact": "100% authentication reliability with production credentials"
         },
         {
@@ -786,12 +785,8 @@ def show_key_learnings(flex_mode=False):
         </div>
         """, unsafe_allow_html=True)
 
-def show_limitations(flex_mode=False):
-    if flex_mode:
-        st.header("🔧 OPPORTUNITIES FOR EVEN GREATER EXCELLENCE!")
-        st.info("These 'limitations' are actually proof of our thorough testing and commitment to perfection!")
-    else:
-        st.header("⚠️ Known Limitations")
+def show_limitations():
+    st.header("⚠️ Known Limitations")
     
     limitations = [
         {
@@ -850,12 +845,8 @@ def show_limitations(flex_mode=False):
         </div>
         """, unsafe_allow_html=True)
 
-def show_work_to_do(flex_mode=False):
-    if flex_mode:
-        st.header("🚀 NEXT LEVEL ENHANCEMENTS!")
-        st.markdown("### 🎯 Taking Perfection to New Heights")
-    else:
-        st.header("🎯 Work To Do")
+def show_work_to_do():
+    st.header("🎯 Work To Do")
     
     st.subheader("🚨 Critical Priority")
     critical_work = [
@@ -914,12 +905,8 @@ def show_work_to_do(flex_mode=False):
     with col3:
         st.metric("Documentation", "Clean up needed", "~15 files to organize")
 
-def show_documentation_hub(flex_mode=False):
-    if flex_mode:
-        st.header("📚 COMPREHENSIVE DOCUMENTATION MASTERY!")
-        st.markdown("### 🎯 Every Document Tells the Story of Excellence")
-    else:
-        st.header("📚 Documentation Hub")
+def show_documentation_hub():
+    st.header("📚 Documentation Hub")
     st.markdown("Access all critical project documents")
     
     # Organize docs by importance
