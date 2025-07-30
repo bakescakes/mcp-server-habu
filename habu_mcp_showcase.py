@@ -399,7 +399,7 @@ def show_project_overview(flex_mode=False):
         # Calculate actual tested tools dynamically
         tool_status = parse_tool_testing_status()
         completed_tools = parse_testing_progress()
-        verified_count = len([t for t in tool_status if t['status_category'] == 'verified'])
+        verified_count = len([t for t in tool_status if t.get('status_category') == 'verified'])
         verified_count += len([t for t in completed_tools if t['name'] not in [ts['name'] for ts in tool_status]])
         
         st.markdown(f"""
@@ -530,7 +530,7 @@ def show_tools_explorer(flex_mode=False):
                     "❌ Issues": "issue",
                     "⚪ Untested": "untested"
                 }
-                if status_info['status_category'] != status_map.get(status_filter):
+                if status_info.get('status_category') != status_map.get(status_filter):
                     continue
             
             # Apply search filter
@@ -543,7 +543,7 @@ def show_tools_explorer(flex_mode=False):
             with st.expander(f"📁 {category} ({len(filtered_tools)} tools)", expanded=True):
                 for tool, status_info in filtered_tools:
                     # Status icon and color
-                    status_cat = status_info['status_category']
+                    status_cat = status_info.get('status_category', 'untested')
                     if status_cat == 'verified':
                         icon = "✅"
                         css_class = "status-verified"
@@ -645,7 +645,7 @@ def show_testing_dashboard(flex_mode=False):
         # Check in tool_status first
         for status_tool in tool_status:
             if status_tool['name'] == tool_name:
-                tool_data['status'] = status_tool['status_category']
+                tool_data['status'] = status_tool.get('status_category', 'untested')
                 break
         
         # Check in completed_tools
