@@ -22,17 +22,78 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Force sidebar to stay open
+# Force sidebar to stay open and improve styling
 st.markdown("""
 <style>
+    /* Keep sidebar always visible and properly sized */
     .sidebar .sidebar-content {
         width: 300px;
     }
     section[data-testid="stSidebar"] {
         width: 300px !important;
+        min-width: 300px !important;
     }
     section[data-testid="stSidebar"] > div {
         width: 300px !important;
+        min-width: 300px !important;
+    }
+    
+    /* Prevent sidebar from collapsing */
+    section[data-testid="stSidebar"][aria-expanded="false"] {
+        width: 300px !important;
+        margin-left: 0px !important;
+    }
+    
+    /* Style the navigation menu items */
+    .nav-item {
+        padding: 10px 15px;
+        margin: 5px 0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+    
+    .nav-item:hover {
+        background-color: rgba(151, 166, 195, 0.15);
+        border-color: rgba(151, 166, 195, 0.3);
+    }
+    
+    .nav-item.selected {
+        background-color: rgba(255, 75, 75, 0.1);
+        border-color: rgba(255, 75, 75, 0.3);
+        font-weight: bold;
+    }
+    
+    /* Hide the default radio button styling */
+    .stRadio > div {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .stRadio > div > label {
+        background-color: transparent;
+        border: 1px solid rgba(151, 166, 195, 0.2);
+        border-radius: 8px;
+        padding: 12px 15px;
+        margin: 4px 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        width: 100%;
+    }
+    
+    .stRadio > div > label:hover {
+        background-color: rgba(151, 166, 195, 0.15);
+        border-color: rgba(151, 166, 195, 0.4);
+        transform: translateX(2px);
+    }
+    
+    .stRadio > div > label[data-checked="true"] {
+        background-color: rgba(255, 75, 75, 0.1);
+        border-color: rgba(255, 75, 75, 0.4);
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(255, 75, 75, 0.2);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -203,6 +264,17 @@ def load_markdown_file(filename):
         return f"File {filename} not found"
     except Exception as e:
         return f"Error loading {filename}: {str(e)}"
+
+def clean_text_content(text):
+    """Clean text content to prevent HTML injection and rendering issues"""
+    if not text:
+        return ""
+    import html
+    # Escape any HTML characters that might cause rendering issues
+    cleaned = html.escape(str(text))
+    # Additional cleaning for common problematic patterns
+    cleaned = cleaned.replace("</div>", "").replace("<div", "").replace("&lt;/div&gt;", "")
+    return cleaned
 
 @st.cache_data(ttl=300)  # Cache for 5 minutes
 def parse_tool_testing_status():
@@ -435,18 +507,25 @@ def main():
     st.markdown('<h1 class="main-header">Habu MCP Server Project Overview</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align: center; font-size: 1.3rem; color: #666;">Model Context Protocol Server for LiveRamp Clean Room API</p>', unsafe_allow_html=True)
     
-    # Sidebar navigation
+    # Sidebar navigation with always-visible menu
     st.sidebar.title("🧭 Navigation")
+    st.sidebar.markdown("---")
     
-    page = st.sidebar.selectbox("Choose a section:", [
-        "🏠 Project Overview", 
-        "🛠️ MCP Tools Explorer", 
-        "📊 Testing Dashboard",
-        "🧠 Key Learnings", 
-        "⚠️ Known Limitations", 
-        "🎯 Work To Do",
-        "📚 Documentation Hub"
-    ])
+    # Use radio buttons for always-visible navigation
+    page = st.sidebar.radio(
+        "Choose a section:",
+        [
+            "🏠 Project Overview", 
+            "🛠️ MCP Tools Explorer", 
+            "📊 Testing Dashboard",
+            "🧠 Key Learnings", 
+            "⚠️ Known Limitations", 
+            "🎯 Work To Do",
+            "📚 Documentation Hub"
+        ],
+        index=0,
+        label_visibility="collapsed"
+    )
     
     # Route to functions without flex_mode
     if page == "🏠 Project Overview":
@@ -829,8 +908,10 @@ def show_tools_explorer():
                     
                     # Create enhanced tool card layout with comprehensive information
                     with st.container():
-                        # Main tool info with description
-                        description_preview = tool_info.get('description', f'Advanced workflow tool for {tool.replace("_", " ").title()}')
+                        # Main tool info with description - ensure no HTML content
+                        raw_description = tool_info.get('description', f'Advanced workflow tool for {tool.replace("_", " ").title()}')
+                        # Clean any potential HTML content from descriptions
+                        description_preview = clean_text_content(raw_description)
                         if len(description_preview) > 150:
                             description_preview = description_preview[:150] + "..."
                         
@@ -838,7 +919,9 @@ def show_tools_explorer():
                         key_features_text = ""
                         if tool_info.get('key_features'):
                             features = tool_info['key_features'][:3]
-                            key_features_text = ' • '.join(features)
+                            # Clean each feature to prevent HTML issues
+                            cleaned_features = [clean_text_content(feature) for feature in features]
+                            key_features_text = ' • '.join(cleaned_features)
                         
                         # Determine tool type badges
                         tool_badges = []
@@ -882,7 +965,9 @@ def show_tools_explorer():
                         # API calls preview (if available)
                         if tool_info.get('primary_api_calls'):
                             api_preview = tool_info['primary_api_calls'][:2]  # Show first 2 API calls
-                            api_text = ' • '.join([api.split(' - ')[0] for api in api_preview])  # Just the endpoint part
+                            # Clean API calls and get just the endpoint part
+                            cleaned_apis = [clean_text_content(api.split(' - ')[0]) for api in api_preview]
+                            api_text = ' • '.join(cleaned_apis)
                             st.markdown(f"""
                             <div style='margin-bottom: 0.8rem; font-size: 0.82rem; color: #495057; background: #f8f9fa; padding: 6px 8px; border-radius: 4px;'>
                                 <strong>🔌 API Endpoints:</strong> {api_text}
