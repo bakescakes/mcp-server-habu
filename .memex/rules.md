@@ -251,7 +251,7 @@ For each tool being tested:
 - **Learnings**: Insights about API behavior and requirements
 
 ### Current Testing Status
-- **Tools Tested**: 8/45 (18% complete)
+- **Tools Tested**: 11/45 (24% complete)
 - **Test Environment**: Production cleanroom CR-045487
 - **Authentication**: OAuth2 working with live credentials
 - **Test Data**: Real partners, questions, and results
@@ -599,6 +599,188 @@ Add to MCP client configuration:
 - **Debug Information**: Comprehensive logging for troubleshooting
 - **User Guidance**: Clear documentation and error messages
 - **Escalation Path**: Direct line to Habu API support when needed
+
+---
+
+## 📋 **DOCUMENTATION UPDATE GUIDELINES** ⭐
+
+### **🎯 Master Rule: Single Source of Truth**
+**CRITICAL**: Always maintain consistency across all documentation files. When one file is updated, check and update ALL related files to prevent conflicting information.
+
+---
+
+### **📊 Core Status Files (Always Update Together)**
+
+#### **1. STATUS.json** 📱 *[Machine-Readable - React Website Primary Source]*
+**Update When**: Any project status change
+**Required Fields to Update**:
+```json
+{
+  "tools": {
+    "tested": [CURRENT_TESTED_COUNT],
+    "testingProgress": "[PERCENTAGE]%"
+  },
+  "testing": {
+    "nextTool": "[NEXT_TOOL_NAME]",
+    "currentPhase": "[CURRENT_TESTING_PHASE]"
+  },
+  "lastUpdated": "[ISO_DATE]"
+}
+```
+
+#### **2. MCP_TOOL_TESTING_STATUS.md** 📋 *[Testing Status - React Website Secondary]*
+**Update When**: Tool testing completion, test failure, or methodology changes
+**Required Sections**:
+- **Testing Progress Summary**: Update totals (X/45 tools, Y% complete)
+- **CONFIRMED TESTED TOOLS**: Add new validated tools
+- **Next Tool Target**: Update next tool to test
+
+#### **3. TESTING_PROGRESS.md** 🧪 *[Methodology & Queue - Internal Reference]*
+**Update When**: Testing methodology changes, queue reordering, or phase completion
+**Required Sections**:
+- **CONFIRMED TESTED TOOLS**: Match MCP_TOOL_TESTING_STATUS.md exactly
+- **NEXT TOOL TO TEST**: Update with priority and function description
+- **Testing Queue**: Reorder based on priorities
+- **TESTING PROGRESS TRACKER**: Update phase completion percentages
+
+---
+
+### **🔄 Event-Driven Update Matrix**
+
+#### **🧪 TESTING EVENT: New Tool Validated**
+**Trigger**: Tool successfully tested and validated
+**Files to Update** (in order):
+1. **STATUS.json** ✅
+   - Increment `tools.tested` count
+   - Update `tools.testingProgress` percentage  
+   - Set `testing.nextTool` to next priority tool
+   - Update `lastUpdated` timestamp
+
+2. **MCP_TOOL_TESTING_STATUS.md** ✅
+   - Add tool to appropriate category section with ✅ status
+   - Update **Testing Progress Summary** totals
+   - Update **Next Tool Target** section
+   - Document any issues or learnings
+
+3. **TESTING_PROGRESS.md** ✅
+   - Add tool to **CONFIRMED TESTED TOOLS** section
+   - Update **TESTING PROGRESS TRACKER** percentages
+   - Move next tool from queue to **NEXT TOOL TO TEST**
+   - Update phase completion statistics
+
+4. **Git Commit** 📝
+   - Commit with detailed message including tool name and validation results
+   - Use format: `🧪 TEST COMPLETE: [tool_name] - [brief_result]`
+
+#### **🔧 CODE EVENT: New Tool Added**
+**Trigger**: New MCP tool implemented
+**Files to Update**:
+1. **MCP_TOOLS_REFERENCE.md** - Add tool documentation
+2. **MCP_TOOLS_REFERENCE_DETAILED.md** - Add technical implementation details
+3. **STATUS.json** - Update `tools.total` count
+4. **Update Testing Queue** - Add to appropriate testing phase
+
+#### **📚 DOCUMENTATION EVENT: Major Update**
+**Trigger**: Significant documentation changes or cleanup
+**Files to Update**:
+1. **README.md** - Update documentation section references
+2. **STATUS.json** - Update documentation references
+3. **All affected .md files** - Ensure cross-references are current
+
+---
+
+### **📱 React Website Priority Documents**
+
+#### **Primary Data Sources** (React should poll these):
+1. **STATUS.json** 🥇 *[Real-time project status]*
+   - Current tool counts and testing progress
+   - Next priorities and recent achievements
+   - Machine-readable format optimized for UI consumption
+
+2. **MCP_TOOLS_REFERENCE.md** 🥈 *[User-friendly tool guide]*
+   - Human-readable tool descriptions and usage examples
+   - Organized by categories for UI navigation
+   - Complete tool functionality overview
+
+#### **Secondary References** (React can link to these):
+3. **MCP_TOOLS_REFERENCE_DETAILED.md** 🥉 *[Technical implementation details]*
+   - Complete API analysis and implementation details
+   - For developers and technical integrators
+   - Comprehensive tool capability documentation
+
+4. **README.md** 🏅 *[Project overview and setup]*
+   - Project introduction and key achievements
+   - Installation and configuration instructions
+   - Links to all other documentation
+
+5. **MCP_TOOL_TESTING_STATUS.md** 🎖️ *[Testing progress and validation]*
+   - Current testing status and methodology
+   - Detailed test results and issue tracking
+   - Next testing priorities and plans
+
+---
+
+### **⚠️ Consistency Checkpoints**
+
+#### **Before Any Documentation Commit**:
+1. ✅ **Cross-Reference Check**: Verify all tool counts match across files
+2. ✅ **Next Tool Alignment**: Ensure same "next tool" across all testing files  
+3. ✅ **Percentage Validation**: Confirm testing percentages are mathematically correct
+4. ✅ **Date Consistency**: Update all timestamp fields to same date
+
+#### **Weekly Maintenance** (if actively testing):
+1. 🔍 **Audit Tool Counts**: Verify all files show same totals
+2. 🔍 **Check Cross-References**: Ensure internal links work
+3. 🔍 **Validate Testing Queue**: Confirm priority order makes sense
+4. 🔍 **Update Achievement Lists**: Keep recent achievements current
+
+#### **Monthly Maintenance**:
+1. 📊 **STATUS.json Cleanup**: Remove outdated achievement entries
+2. 📚 **Documentation Links**: Verify all external references work
+3. 🧹 **File Organization**: Archive completed planning documents
+4. 📈 **Progress Analysis**: Update success metrics and KPIs
+
+---
+
+### **🚨 ERROR PREVENTION Rules**
+
+#### **NEVER UPDATE JUST ONE FILE**
+- ❌ **Wrong**: Update only STATUS.json after testing a tool
+- ✅ **Right**: Update STATUS.json, MCP_TOOL_TESTING_STATUS.md, AND TESTING_PROGRESS.md
+
+#### **ALWAYS VERIFY MATH**
+- Tools tested / Total tools = Percentage (ensure this is correct across all files)
+- Phase completion percentages should add up logically
+- Next tool should be the logical next priority in the queue
+
+#### **MAINTAIN TOOL COUNT CONSISTENCY**
+- If one file says "11/45 tools (24% complete)", ALL files must show the same
+- Any discrepancy requires immediate investigation and correction
+- Use git history to trace the source of inconsistencies
+
+#### **UPDATE DOCUMENTATION REFERENCES**
+- When creating new .md files, add them to README.md documentation section
+- Update STATUS.json documentation references
+- Ensure React website documentation lists remain current
+
+---
+
+### **🔧 Quick Update Commands**
+
+#### **Testing Progress Update Template**:
+```bash
+# 1. Update core counts in STATUS.json
+# 2. Add tool to MCP_TOOL_TESTING_STATUS.md tested list  
+# 3. Move next tool in TESTING_PROGRESS.md queue
+# 4. Commit with: "🧪 TEST COMPLETE: [tool_name] - [status]"
+```
+
+#### **Documentation Sync Check**:
+```bash
+# Search for tool counts across all files:
+grep -r "11/45\|24%" *.md *.json
+# Should return consistent results across all files
+```
 
 ---
 
