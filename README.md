@@ -16,6 +16,14 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 
 **🚀 MILESTONE ACHIEVED: Complete LiveRamp Clean Room workflow automation platform ready for immediate use in Memex or any MCP-compatible client.**
 
+## 📚 Documentation
+
+- **[Complete Setup Guide](README.md)** - Full installation and configuration
+- **[MCP Tools Reference](MCP_TOOLS_REFERENCE.md)** - Human-readable guide to all 45 tools
+- **[Detailed Technical Reference](MCP_TOOLS_REFERENCE_DETAILED.md)** - Comprehensive API analysis and implementation details ⭐
+- **[Testing Status](MCP_TOOL_TESTING_STATUS.md)** - Current testing progress (18% complete)
+- **[Project Rules](RULES.md)** - Development guidelines and standards
+
 ## 📊 API Coverage Status ✨ **ENHANCED**
 - **Current Coverage**: 99% of total API functionality
 - **Tools Implemented**: 45 comprehensive workflow tools (verified from live MCP server)
