@@ -24,15 +24,24 @@ An MCP (Model Context Protocol) Server that provides intelligent workflow-based 
 
 ## 🔧 **Recent Debug Victory: Question Run Monitoring** ✨ **FIXED**
 
-**Issue Discovered**: `question_run_monitoring_dashboard` tool returning 404 errors  
-**Root Cause**: Habu API doesn't provide cleanroom-level question run monitoring endpoint  
-**Solution Implemented**: 
-- ✅ API-aware monitoring for specific run IDs using `/cleanroom-question-runs/{runId}` endpoint
-- ✅ Comprehensive user guidance explaining API limitations and alternatives  
-- ✅ Fixed variable scoping bug (`cleanroomId` vs `actualCleanroomId`)
-- ✅ Enhanced tool to provide educational value about API structure
+**Issue Discovered**: `question_run_monitoring_dashboard` tool incorrectly reporting successful runs as failed  
+**Root Cause Analysis**: 
+- ✅ **API Investigation**: Found that CRQ-138029 actually completed successfully
+- ✅ **Error Handling Bug**: Tool reported "ERROR (404)" for runs that completed and may be archived
+- ✅ **Run Name Logic**: Clarified that "MCP_Run_1753844461752" uses JavaScript timestamps
 
-**Result**: Tool now works correctly and provides valuable monitoring capability for specific runs with clear guidance for comprehensive monitoring.
+**Solution Implemented**: 
+- ✅ Enhanced error handling with contextual messages for 404/403/401 responses
+- ✅ Changed confusing "ERROR" status to "API_ERROR" with explanatory context
+- ✅ Added notes explaining that 404 may indicate completed-but-archived runs
+- ✅ Documented run name generation: `MCP_Run_${Date.now()}` where number = execution timestamp
+
+**Run Name Logic Explained**:
+- Pattern: `runName || 'MCP_Run_${Date.now()}'`
+- Example: "1753844461752" = JavaScript timestamp = July 29, 2025, 11:08:33 PM
+- Provides unique identification and timing correlation
+
+**Result**: Tool now provides accurate status reporting and helpful context rather than incorrectly flagging successful runs as failed.
 
 ## 🧠 BREAKTHROUGH: Smart Detection for Question Execution ✨ **NEW**
 
