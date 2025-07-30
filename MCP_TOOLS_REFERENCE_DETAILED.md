@@ -594,30 +594,41 @@ This comprehensive guide documents all **45 MCP tools** with detailed technical 
 
 ---
 
-### results_access_and_export ⭐ **ENHANCED**
-**Purpose:** Intelligent result retrieval with smart question discovery, multi-format export, and guided workflow integration.
+### results_access_and_export ⭐ **SUPER ENHANCED**
+**Purpose:** Intelligent result retrieval with smart run ID discovery, clarification prompts, and advanced workflow integration that asks for clarification instead of guessing.
 
 **What it bundles:**
-- **Smart Discovery**: Question-based lookup with intelligent run ID resolution
-- **Workflow Guidance**: Interactive help mode with step-by-step instructions
-- **API Limitation Awareness**: Transparent communication about discovery constraints
+- **Smart Run ID Discovery**: Intent detection, format validation, and intelligent guidance
+- **Clarification Over Guessing**: Tool asks for user clarification instead of using potentially wrong run IDs
+- **Enhanced Error Handling**: Context-aware 404 troubleshooting with specific guidance
+- **Question-Based Discovery**: Intelligent lookup from question identifiers with guided workflows
+- **User Intent Detection**: Parses requests for keywords like "recent", "latest", specific dates
+- **Format Validation**: Pre-API validation to catch run ID format issues early
 - Multi-format result export with intelligent format optimization (JSON, CSV, Excel, summary)
 - Advanced filtering capabilities with type-aware operations and business logic
-- Column selection with metadata preservation and schema validation
-- File export with secure download management and customizable naming conventions
-- Integration guidance for seamless workflow between execute_question_run and results access
+- Enhanced help mode with multiple discovery paths and user preference detection
+- Seamless integration guidance between execute_question_run and results access
+
+**Built-in Intelligence:**
+- **Intent Pattern Recognition**: Detects user intent from input patterns (recent, latest, time-specific)
+- **Run ID Format Validation**: Validates UUID format before making API calls
+- **Smart Error Analysis**: Provides specific guidance based on error type (404, 403, format issues)
+- **Clarification Prompts**: Asks users to specify preferences instead of guessing
+- **Workflow Integration**: Guides users through multi-tool workflows naturally
+- **Context-Aware Messaging**: Tailored responses based on user input patterns
 
 **API Functions Used:**
 - `GET /cleanrooms/{cleanroomId}/questions` - Available questions discovery for help mode
-- `GET /cleanroom-question-runs/{runId}/data` - Direct result data retrieval
+- `GET /cleanroom-question-runs/{runId}/data` - Direct result data retrieval with enhanced error handling
 - Result metadata parsing with schema information and quality metrics
 - Format optimization and export processing
+- Enhanced error context analysis and user guidance generation
 
 **User input needed:**
 - cleanroomId: Cleanroom name, Display ID (CR-XXXXXX), or UUID (required)
-- runId: Question run ID for direct result access (optional - for immediate retrieval)
-- questionId: Question name, Display ID (CRQ-XXXXXX), or UUID (optional - for guided lookup)
-- helpMode: Show available questions and workflow guidance (optional, defaults to false)
+- runId: Question run ID for direct result access (optional - validated for format before API call)
+- questionId: Question name, Display ID (CRQ-XXXXXX), or UUID (optional - triggers smart discovery mode)
+- helpMode: Show enhanced discovery options and workflow guidance (optional, defaults to false)
 - format: Output format with intelligent optimization (json, csv, excel, summary) (optional)
 - includeColumns: Comma-separated list of specific columns to include (optional)
 - filterCriteria: Advanced filtering parameters with type-aware operations (optional)
