@@ -1,0 +1,131 @@
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.7.241:8501
+  External URL: http://174.83.91.125:8501
+
+  For better performance, install the Watchdog module:
+
+  $ xcode-select --install
+  $ pip install watchdog
+            
+2025-07-30 02:20:19.630 Uncaught app execution
+Traceback (most recent call last):
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 128, in exec_func_with_error_handling
+    result = func()
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 669, in code_to_exec
+    exec(code, module.__dict__)  # noqa: S102
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 2268, in <module>
+    main()
+    ~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 455, in main
+    show_tools_explorer()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 652, in show_tools_explorer
+    for category, tools in filtered_categories.items():
+                           ^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'filtered_categories' where it is not associated with a value
+2025-07-30 02:20:26.579 Uncaught app execution
+Traceback (most recent call last):
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 128, in exec_func_with_error_handling
+    result = func()
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 669, in code_to_exec
+    exec(code, module.__dict__)  # noqa: S102
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 2268, in <module>
+    main()
+    ~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 455, in main
+    show_tools_explorer()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 652, in show_tools_explorer
+    for category, tools in filtered_categories.items():
+                           ^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'filtered_categories' where it is not associated with a value
+2025-07-30 02:20:27.989 Uncaught app execution
+Traceback (most recent call last):
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 128, in exec_func_with_error_handling
+    result = func()
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 669, in code_to_exec
+    exec(code, module.__dict__)  # noqa: S102
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 2268, in <module>
+    main()
+    ~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 455, in main
+    show_tools_explorer()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 652, in show_tools_explorer
+    for category, tools in filtered_categories.items():
+                           ^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'filtered_categories' where it is not associated with a value
+2025-07-30 02:20:28.885 Uncaught app execution
+Traceback (most recent call last):
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 128, in exec_func_with_error_handling
+    result = func()
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 669, in code_to_exec
+    exec(code, module.__dict__)  # noqa: S102
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 2268, in <module>
+    main()
+    ~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 455, in main
+    show_tools_explorer()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 652, in show_tools_explorer
+    for category, tools in filtered_categories.items():
+                           ^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'filtered_categories' where it is not associated with a value
+2025-07-30 02:20:29.659 Uncaught app execution
+Traceback (most recent call last):
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 128, in exec_func_with_error_handling
+    result = func()
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 669, in code_to_exec
+    exec(code, module.__dict__)  # noqa: S102
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 2268, in <module>
+    main()
+    ~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 455, in main
+    show_tools_explorer()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 652, in show_tools_explorer
+    for category, tools in filtered_categories.items():
+                           ^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'filtered_categories' where it is not associated with a value
+2025-07-30 02:20:30.292 Uncaught app execution
+Traceback (most recent call last):
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 128, in exec_func_with_error_handling
+    result = func()
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 669, in code_to_exec
+    exec(code, module.__dict__)  # noqa: S102
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 2268, in <module>
+    main()
+    ~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 455, in main
+    show_tools_explorer()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 652, in show_tools_explorer
+    for category, tools in filtered_categories.items():
+                           ^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'filtered_categories' where it is not associated with a value
+2025-07-30 02:20:30.869 Uncaught app execution
+Traceback (most recent call last):
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 128, in exec_func_with_error_handling
+    result = func()
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/.venv/lib/python3.13/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 669, in code_to_exec
+    exec(code, module.__dict__)  # noqa: S102
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 2268, in <module>
+    main()
+    ~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 455, in main
+    show_tools_explorer()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/scottbaker/Workspace/mcp_server_for_habu/habu_mcp_showcase.py", line 652, in show_tools_explorer
+    for category, tools in filtered_categories.items():
+                           ^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'filtered_categories' where it is not associated with a value
