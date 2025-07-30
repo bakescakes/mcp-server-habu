@@ -644,6 +644,47 @@ def show_tools_explorer():
             if st.button(label, key=f"quick_{keyword}"):
                 active_quick_filter = keyword
     
+    # Apply quick filter to search term
+    if active_quick_filter:
+        search_term = active_quick_filter
+    
+    # Apply filters
+    filtered_categories = categories.copy()
+    if category_filter != "All":
+        filtered_categories = {category_filter: categories[category_filter]}
+    
+    # Helper function for advanced filtering
+    def passes_advanced_filters(tool_name, tool_info):
+        # Feature filter
+        if feature_filter != "All":
+            feature_keywords = {
+                "Wizards": ["wizard", "interactive", "step-by-step"],
+                "Authentication": ["auth", "oauth", "credentials", "token"],
+                "Cloud": ["aws", "azure", "gcp", "snowflake", "databricks", "cloud"],
+                "Monitoring": ["monitor", "health", "status", "track", "audit"],
+                "Export": ["export", "results", "download", "delivery"]
+            }
+            keywords = feature_keywords.get(feature_filter, [])
+            if not any(keyword.lower() in tool_name.lower() or 
+                      keyword.lower() in tool_info.get('description', '').lower() or
+                      any(keyword.lower() in feature.lower() for feature in tool_info.get('key_features', []))
+                      for keyword in keywords):
+                return False
+        
+        # API filter
+        if api_filter:
+            tool_text = f"{tool_name} {tool_info.get('description', '')} {' '.join(tool_info.get('key_features', []))}"
+            if not any(api_feature.lower() in tool_text.lower() for api_feature in api_filter):
+                return False
+        
+        # Provider filter
+        if provider_filter:
+            tool_text = f"{tool_name} {tool_info.get('description', '')} {' '.join(tool_info.get('key_features', []))}"
+            if not any(provider.lower() in tool_text.lower() for provider in provider_filter):
+                return False
+        
+        return True
+    
     # Calculate and display filter results summary
     total_tools = sum(len(tools) for tools in categories.values())
     
@@ -729,47 +770,6 @@ def show_tools_explorer():
         """, unsafe_allow_html=True)
     
     st.markdown("---")
-    
-    # Apply quick filter to search term
-    if active_quick_filter:
-        search_term = active_quick_filter
-    
-    # Apply filters
-    filtered_categories = categories.copy()
-    if category_filter != "All":
-        filtered_categories = {category_filter: categories[category_filter]}
-    
-    # Helper function for advanced filtering
-    def passes_advanced_filters(tool_name, tool_info):
-        # Feature filter
-        if feature_filter != "All":
-            feature_keywords = {
-                "Wizards": ["wizard", "interactive", "step-by-step"],
-                "Authentication": ["auth", "oauth", "credentials", "token"],
-                "Cloud": ["aws", "azure", "gcp", "snowflake", "databricks", "cloud"],
-                "Monitoring": ["monitor", "health", "status", "track", "audit"],
-                "Export": ["export", "results", "download", "delivery"]
-            }
-            keywords = feature_keywords.get(feature_filter, [])
-            if not any(keyword.lower() in tool_name.lower() or 
-                      keyword.lower() in tool_info.get('description', '').lower() or
-                      any(keyword.lower() in feature.lower() for feature in tool_info.get('key_features', []))
-                      for keyword in keywords):
-                return False
-        
-        # API filter
-        if api_filter:
-            tool_text = f"{tool_name} {tool_info.get('description', '')} {' '.join(tool_info.get('key_features', []))}"
-            if not any(api_feature.lower() in tool_text.lower() for api_feature in api_filter):
-                return False
-        
-        # Provider filter
-        if provider_filter:
-            tool_text = f"{tool_name} {tool_info.get('description', '')} {' '.join(tool_info.get('key_features', []))}"
-            if not any(provider.lower() in tool_text.lower() for provider in provider_filter):
-                return False
-        
-        return True
     
     # Display tools by category
     for category, tools in filtered_categories.items():
