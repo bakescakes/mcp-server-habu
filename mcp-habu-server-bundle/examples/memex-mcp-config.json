@@ -1,0 +1,11 @@
+{
+  "habu-cleanroom": {
+    "runtime": "node",
+    "args": ["/FULL/PATH/TO/mcp-habu-runner/dist/index.js"],
+    "env": {
+      "CLIENT_ID": "your_client_id_here",
+      "CLIENT_SECRET": "your_client_secret_here",
+      "USE_REAL_API": "true"
+    }
+  }
+}
