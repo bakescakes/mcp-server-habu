@@ -602,90 +602,89 @@ Add to MCP client configuration:
 
 ---
 
-## 📋 **DOCUMENTATION UPDATE GUIDELINES** ⭐
+## 📋 **DOCUMENTATION UPDATE GUIDELINES** ⭐ **COMPLETELY UPDATED**
 
-### **🎯 Master Rule: Single Source of Truth**
-**CRITICAL**: Always maintain consistency across all documentation files. When one file is updated, check and update ALL related files to prevent conflicting information.
+### **🎯 NEW MASTER RULE: Automated Single Source of Truth**
+**BREAKTHROUGH**: Documentation overhaul completed August 4, 2025. **Manual sync errors are now IMPOSSIBLE** due to automated generation system.
+
+### **🚀 NEW AUTOMATED WORKFLOW** ✨
+**MAJOR IMPROVEMENT**: STATUS.json is now automatically generated from CURRENT_STATUS.md!
+
+**THE NEW 1-STEP WORKFLOW**:
+```bash
+1. Update CURRENT_STATUS.md ONLY (single source of truth)
+2. Run: npm run sync-status 
+3. Commit: npm run commit-status -m "🧪 TEST COMPLETE: [tool] - [result]"
+# STATUS.json automatically synchronized - zero manual work!
+```
 
 ---
 
-### **📊 Core Status Files (Always Update Together)**
+### **📊 NEW DOCUMENTATION STRUCTURE** (Post-Overhaul)
 
-#### **1. STATUS.json** 📱 *[Machine-Readable - React Website Primary Source]*
-**Update When**: Any project status change
-**Required Fields to Update**:
-```json
-{
-  "tools": {
-    "tested": [CURRENT_TESTED_COUNT],
-    "testingProgress": "[PERCENTAGE]%"
-  },
-  "testing": {
-    "nextTool": "[NEXT_TOOL_NAME]",
-    "currentPhase": "[CURRENT_TESTING_PHASE]"
-  },
-  "lastUpdated": "[ISO_DATE]"
-}
-```
+#### **🎯 SINGLE SOURCE OF TRUTH**
+**CURRENT_STATUS.md** 🥇 *[Master Document - Update This Only]*
+- **Purpose**: Authoritative source for all dynamic project information
+- **Update When**: Tool testing, milestones, status changes, issues
+- **Auto-Generates**: STATUS.json via scripts/generate-status-json.js
+- **Structure**: Structured markdown tables for API parsing
+- **Authority**: Replaces all conflicting status files
 
-#### **2. MCP_TOOL_TESTING_STATUS.md** 📋 *[Testing Status - React Website Secondary]*
-**Update When**: Tool testing completion, test failure, or methodology changes
-**Required Sections**:
-- **Testing Progress Summary**: Update totals (X/45 tools, Y% complete)
-- **CONFIRMED TESTED TOOLS**: Add new validated tools
-- **Next Tool Target**: Update next tool to test
+#### **📱 AUTOMATED GENERATION**
+**STATUS.json** 🤖 *[Auto-Generated - Never Edit Manually]*
+- **Source**: Automatically generated from CURRENT_STATUS.md
+- **Purpose**: Fast API consumption for React website
+- **Update Method**: npm run sync-status (automated)
+- **Manual Editing**: ❌ FORBIDDEN - will be overwritten
+- **Consistency**: 100% guaranteed to match CURRENT_STATUS.md
 
-#### **3. TESTING_PROGRESS.md** 🧪 *[Methodology & Queue - Internal Reference]*
-**Update When**: Testing methodology changes, queue reordering, or phase completion
-**Required Sections**:
-- **CONFIRMED TESTED TOOLS**: Match MCP_TOOL_TESTING_STATUS.md exactly
-- **NEXT TOOL TO TEST**: Update with priority and function description
-- **Testing Queue**: Reorder based on priorities
-- **TESTING PROGRESS TRACKER**: Update phase completion percentages
+#### **📚 STABLE REFERENCE DOCUMENTS** (Rarely Change)
+- **README.md** 📖 - Project introduction, setup, navigation
+- **DEVELOPMENT_GUIDE.md** 🔧 - Developer workflows, automation, troubleshooting  
+- **MCP_TOOLS_REFERENCE.md** 📚 - User-facing tool documentation
+- **MCP_TOOLS_REFERENCE_DETAILED.md** 🔬 - Technical implementation details
 
 ---
 
 ### **🔄 Event-Driven Update Matrix**
 
-#### **🧪 TESTING EVENT: New Tool Validated**
+#### **🧪 TESTING EVENT: New Tool Validated** ✨ **NEW AUTOMATED WORKFLOW**
 **Trigger**: Tool successfully tested and validated
 **Files to Update** (in order):
-1. **STATUS.json** ✅
-   - Increment `tools.tested` count
-   - Update `tools.testingProgress` percentage  
-   - Set `testing.nextTool` to next priority tool
-   - Update `lastUpdated` timestamp
+1. **CURRENT_STATUS.md** ✅ *[ONLY file to manually update]*
+   - Add tool to "✅ CONFIRMED TESTED TOOLS" table
+   - Update testing progress counters (12→13 tools, 27%→29% progress)
+   - Update "Next Tool" section
+   - Add any issues to "Known Issues" section
 
-2. **MCP_TOOL_TESTING_STATUS.md** ✅
-   - Add tool to appropriate category section with ✅ status
-   - Update **Testing Progress Summary** totals
-   - Update **Next Tool Target** section
-   - Document any issues or learnings
+2. **Automated Generation** 🤖 *[Zero manual work]*
+   - Run: `npm run sync-status`
+   - STATUS.json automatically updated from CURRENT_STATUS.md
+   - Validation automatically performed
+   - Consistency guaranteed
 
-3. **TESTING_PROGRESS.md** ✅
-   - Add tool to **CONFIRMED TESTED TOOLS** section
-   - Update **TESTING PROGRESS TRACKER** percentages
-   - Move next tool from queue to **NEXT TOOL TO TEST**
-   - Update phase completion statistics
+3. **Optional Updates** (if needed):
+   - **MCP_TOOLS_REFERENCE_DETAILED.md** - IF technical details changed
+   - **DEVELOPMENT_GUIDE.md** - IF workflow changes discovered
 
-4. **Git Commit** 📝
-   - Commit with detailed message including tool name and validation results
-   - Use format: `🧪 TEST COMPLETE: [tool_name] - [brief_result]`
+4. **Git Commit** 📝 *[Automated]*
+   - Use: `npm run commit-status -m "🧪 TEST COMPLETE: [tool_name] - [result]"`
+   - Both CURRENT_STATUS.md and STATUS.json committed together
 
 #### **🔧 CODE EVENT: New Tool Added**
 **Trigger**: New MCP tool implemented
 **Files to Update**:
 1. **MCP_TOOLS_REFERENCE.md** - Add tool documentation
 2. **MCP_TOOLS_REFERENCE_DETAILED.md** - Add technical implementation details
-3. **STATUS.json** - Update `tools.total` count
-4. **Update Testing Queue** - Add to appropriate testing phase
+3. **CURRENT_STATUS.md** - Update total tool count if needed
+4. **Auto-sync**: `npm run sync-status` (STATUS.json updated automatically)
 
 #### **📚 DOCUMENTATION EVENT: Major Update**
 **Trigger**: Significant documentation changes or cleanup
 **Files to Update**:
 1. **README.md** - Update documentation section references
-2. **STATUS.json** - Update documentation references
-3. **All affected .md files** - Ensure cross-references are current
+2. **CURRENT_STATUS.md** - Update project status information
+3. **Auto-sync**: `npm run sync-status` (STATUS.json updated automatically)
 
 ---
 
@@ -769,26 +768,30 @@ Add to MCP client configuration:
 
 ---
 
-### **🚨 ERROR PREVENTION Rules**
+### **🚨 ERROR PREVENTION Rules** ✨ **AUTOMATED PREVENTION**
 
-#### **NEVER UPDATE JUST ONE FILE**
-- ❌ **Wrong**: Update only STATUS.json after testing a tool
-- ✅ **Right**: Update STATUS.json, MCP_TOOL_TESTING_STATUS.md, AND TESTING_PROGRESS.md
+#### **SYNC ERRORS NOW IMPOSSIBLE** ✅
+- ✅ **New**: STATUS.json automatically generated from CURRENT_STATUS.md
+- ✅ **New**: Consistency validation built into npm scripts
+- ✅ **New**: Single source of truth eliminates conflicts
+- ✅ **Result**: Manual sync errors are architecturally impossible
 
-#### **ALWAYS VERIFY MATH**
-- Tools tested / Total tools = Percentage (ensure this is correct across all files)
-- Phase completion percentages should add up logically
-- Next tool should be the logical next priority in the queue
+#### **AUTOMATED CONSISTENCY VALIDATION**
+- ✅ **Tool**: `npm run validate-docs` checks data consistency
+- ✅ **Tool**: `npm run sync-status` includes automatic validation
+- ✅ **Tool**: Generation script validates all extracted data
+- ✅ **Protection**: Malformed data triggers clear error messages
 
-#### **MAINTAIN TOOL COUNT CONSISTENCY**
-- If one file says "11/45 tools (24% complete)", ALL files must show the same
-- Any discrepancy requires immediate investigation and correction
-- Use git history to trace the source of inconsistencies
+#### **NEW SIMPLIFIED RULES**
+- ✅ **Update CURRENT_STATUS.md only** (single source of truth)
+- ✅ **Run automated sync** with `npm run sync-status`
+- ✅ **Validation runs automatically** on every generation
+- ✅ **Commit both files together** with `npm run commit-status`
 
-#### **UPDATE DOCUMENTATION REFERENCES**
-- When creating new .md files, add them to README.md documentation section
-- Update STATUS.json documentation references
-- Ensure React website documentation lists remain current
+#### **BACKWARD COMPATIBILITY PROTECTION**
+- ⚠️ **Legacy files archived** in `/archive/` directory
+- ⚠️ **Old status files deprecated** with clear warning headers
+- ⚠️ **Migration completed** - no conflicting information sources remain
 
 ---
 
@@ -796,17 +799,24 @@ Add to MCP client configuration:
 
 #### **Testing Progress Update Template**:
 ```bash
-# 1. Update core counts in STATUS.json
-# 2. Add tool to MCP_TOOL_TESTING_STATUS.md tested list  
-# 3. Move next tool in TESTING_PROGRESS.md queue
-# 4. Commit with: "🧪 TEST COMPLETE: [tool_name] - [status]"
+# 1. Update core counts in CURRENT_STATUS.md
+# 2. Run: npm run sync-status
+# 3. Commit: npm run commit-status -m "🧪 TEST COMPLETE: [tool_name] - [status]"
 ```
 
 #### **Documentation Sync Check**:
 ```bash
-# Search for tool counts across all files:
-grep -r "11/45\|24%" *.md *.json
-# Should return consistent results across all files
+# Validate documentation consistency:
+npm run validate-docs
+# Should pass all checks - reports any inconsistencies
+```
+
+#### **New Automation Commands** ✨:
+```bash
+npm run generate-status    # Generate STATUS.json from CURRENT_STATUS.md
+npm run sync-status        # Generate + confirmation message  
+npm run validate-docs      # Check consistency between files
+npm run commit-status      # Generate + stage files for commit
 ```
 
 ---

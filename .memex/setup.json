@@ -1,0 +1,154 @@
+{
+  "project": {
+    "name": "MCP Server for Habu",
+    "type": "typescript_mcp_server",
+    "status": "production_ready",
+    "version": "2.0.0",
+    "description": "Model Context Protocol server for LiveRamp Clean Room API automation",
+    "last_updated": "2025-08-04T17:45:00Z"
+  },
+  "documentation": {
+    "structure": "automated_single_source_of_truth",
+    "overhaul_completed": "2025-08-04",
+    "master_document": "CURRENT_STATUS.md",
+    "automated_generation": "STATUS.json",
+    "primary_docs": [
+      {
+        "file": "README.md",
+        "purpose": "Project introduction and setup",
+        "audience": "New developers, GitHub visitors",
+        "update_frequency": "rare"
+      },
+      {
+        "file": "CURRENT_STATUS.md", 
+        "purpose": "Single source of truth for dynamic status",
+        "audience": "All stakeholders",
+        "update_frequency": "after_testing_sessions",
+        "authority": "master"
+      },
+      {
+        "file": "STATUS.json",
+        "purpose": "Machine-readable status for React website",
+        "audience": "APIs, automated systems",
+        "update_frequency": "automated",
+        "source": "auto-generated from CURRENT_STATUS.md"
+      },
+      {
+        "file": "DEVELOPMENT_GUIDE.md",
+        "purpose": "Complete developer workflows and setup",
+        "audience": "Developers, contributors",
+        "update_frequency": "when_workflows_change"
+      },
+      {
+        "file": "MCP_TOOLS_REFERENCE.md",
+        "purpose": "User-facing tool documentation",
+        "audience": "End users, AI agents",
+        "update_frequency": "when_tools_added"
+      },
+      {
+        "file": "MCP_TOOLS_REFERENCE_DETAILED.md",
+        "purpose": "Technical implementation details",
+        "audience": "Developers, technical integrators", 
+        "update_frequency": "when_implementation_changes"
+      }
+    ],
+    "archived_docs": {
+      "location": "archive/",
+      "count": 38,
+      "description": "Historical content preserved but not actively maintained"
+    }
+  },
+  "workflows": {
+    "testing_workflow": {
+      "type": "automated_single_file_update",
+      "steps": [
+        "Update CURRENT_STATUS.md only",
+        "Run: npm run sync-status",
+        "Commit: npm run commit-status -m 'TEST COMPLETE: [tool] - [result]'"
+      ],
+      "benefits": [
+        "Zero sync errors",
+        "Single source of truth",
+        "Automated STATUS.json generation",
+        "Consistency validation"
+      ]
+    },
+    "available_scripts": {
+      "npm run generate-status": "Generate STATUS.json from CURRENT_STATUS.md",
+      "npm run sync-status": "Generate + confirmation message",
+      "npm run validate-docs": "Check consistency between files", 
+      "npm run commit-status": "Generate + stage files for commit",
+      "npm run post-test": "Automatically run after testing"
+    }
+  },
+  "automation": {
+    "status_generation": {
+      "enabled": true,
+      "source": "CURRENT_STATUS.md",
+      "target": "STATUS.json",
+      "script": "scripts/generate-status-json.js",
+      "validation": "scripts/validate-consistency.js"
+    },
+    "benefits": [
+      "Eliminated manual sync errors",
+      "Preserved API JSON performance",
+      "Single source of truth architecture",
+      "Real-time consistency validation"
+    ]
+  },
+  "mcp_server": {
+    "location": "mcp-habu-runner/",
+    "main_file": "src/index.ts",
+    "tools_count": 45,
+    "api_coverage": "99%",
+    "authentication": "oauth2_client_credentials",
+    "status": "production_ready"
+  },
+  "testing": {
+    "current_status": {
+      "tools_tested": 12,
+      "total_tools": 45,
+      "progress": "27%",
+      "last_session": "2025-07-28",
+      "next_tool": "scheduled_run_management"
+    },
+    "methodology": "real_api_validation",
+    "environment": "production_cleanroom_cr_045487"
+  },
+  "conversation_guidelines": {
+    "status_updates": {
+      "primary_file": "CURRENT_STATUS.md",
+      "automation": "npm run sync-status after updates",
+      "never_edit": ["STATUS.json - auto-generated"],
+      "validation": "npm run validate-docs"
+    },
+    "documentation_approach": {
+      "single_source_truth": "CURRENT_STATUS.md is authoritative",
+      "automation_first": "Use npm scripts for synchronization",
+      "consistency_validation": "Built-in validation prevents errors"
+    },
+    "development_workflow": {
+      "setup_reference": "DEVELOPMENT_GUIDE.md", 
+      "tool_documentation": "MCP_TOOLS_REFERENCE.md",
+      "technical_details": "MCP_TOOLS_REFERENCE_DETAILED.md"
+    },
+    "key_achievements": [
+      "45 files → 9 files (80% reduction)",
+      "996-line README → 128 lines (87% reduction)",
+      "5-file manual workflow → 1-file automated workflow",
+      "Zero sync errors architecture implemented"
+    ]
+  },
+  "warnings": {
+    "deprecated_files": [
+      "Do not update files in archive/ directory",
+      "Do not manually edit STATUS.json",
+      "Old testing files have deprecation warnings"
+    ],
+    "critical_rules": [
+      "Always use CURRENT_STATUS.md as single source of truth",
+      "Run npm run sync-status after status updates",
+      "Use npm run validate-docs to check consistency"
+    ]
+  }
+}
