@@ -250,8 +250,11 @@ For each tool being tested:
 - **Business Impact**: Real-world effects of tool execution
 - **Learnings**: Insights about API behavior and requirements
 
-### Current Testing Status
-- **Tools Tested**: 8/45 (18% complete)
+### Current Testing Status ⚠️ DEPRECATED
+> **Status information in this section is outdated.**  
+> **For current testing status**: See [CURRENT_STATUS.md](./CURRENT_STATUS.md)
+
+- **Tools Tested**: 8/45 (18% complete) ⚠️ OUTDATED - Actual: 12/45 (27%)
 - **Test Environment**: Production cleanroom CR-045487
 - **Authentication**: OAuth2 working with live credentials
 - **Test Data**: Real partners, questions, and results

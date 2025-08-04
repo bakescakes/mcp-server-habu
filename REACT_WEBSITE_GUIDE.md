@@ -1,7 +1,11 @@
 # 📱 React Website Integration Guide
 
+> ⚠️ **STATUS INFORMATION DEPRECATED**  
+> Status information in this document may be outdated (shows 24% tested, actual is 27%).  
+> **For current accurate status**: See [CURRENT_STATUS.md](./CURRENT_STATUS.md)
+
 **Project**: MCP Server for Habu  
-**Status**: Production Ready (45 tools, 24% tested)  
+**Status**: Production Ready (45 tools, 24% tested) ⚠️ OUTDATED  
 **Last Updated**: January 17, 2025
 
 ---

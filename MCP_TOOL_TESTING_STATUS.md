@@ -1,5 +1,10 @@
 # 🧪 MCP Tool Testing Status - Clean & Accurate
 
+> ⚠️ **STATUS INFORMATION DEPRECATED**  
+> This document contains outdated status information that may conflict with current reality.  
+> **For current accurate status**: See [CURRENT_STATUS.md](./CURRENT_STATUS.md)  
+> **Reason**: Part of documentation consolidation to eliminate conflicting information.
+
 **Last Updated**: January 17, 2025  
 **Testing Environment**: Production API with CR-045487 (Media Intelligence Demo)  
 **Testing Approach**: Real API validation with business impact verification

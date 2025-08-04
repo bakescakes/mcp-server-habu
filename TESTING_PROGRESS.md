@@ -1,5 +1,10 @@
 # 🧪 Habu MCP Server Testing Progress
 
+> ⚠️ **STATUS INFORMATION DEPRECATED**  
+> This document contains outdated status information that may conflict with current reality.  
+> **For current accurate status**: See [CURRENT_STATUS.md](./CURRENT_STATUS.md)  
+> **Reason**: Part of documentation consolidation to eliminate conflicting information.
+
 **Date**: January 17, 2025  
 **Current Phase**: Multi-Phase Testing (Phases 1-8)  
 **Testing Status**: 12/45 tools validated (27% complete)
