@@ -1,5 +1,19 @@
 {
+  "name": "mcp-server-for-habu",
+  "version": "2.0.0",
+  "description": "Model Context Protocol server for LiveRamp Clean Room API automation",
+  "scripts": {
+    "generate-status": "node scripts/generate-status-json.js",
+    "validate-docs": "node scripts/validate-consistency.js",
+    "post-test": "npm run generate-status",
+    "sync-status": "npm run generate-status && echo '✅ STATUS.json synchronized with CURRENT_STATUS.md'",
+    "commit-status": "npm run generate-status && git add CURRENT_STATUS.md STATUS.json"
+  },
   "dependencies": {
     "dotenv": "^17.2.1"
-  }
+  },
+  "devDependencies": {},
+  "keywords": ["mcp", "habu", "clean-room", "api", "automation"],
+  "author": "Generated with Memex",
+  "license": "MIT"
 }

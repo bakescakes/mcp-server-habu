@@ -119,8 +119,26 @@ npm run build  # Compiles TypeScript to dist/
    - Update "Next Tool" section
    - Add any issues to "Known Issues" section
 3. Update MCP_TOOLS_REFERENCE_DETAILED.md IF technical details changed
-4. Commit: "🧪 TEST COMPLETE: [tool_name] - [result]"
+4. Generate STATUS.json automatically: npm run sync-status
+5. Commit: npm run commit-status -m "🧪 TEST COMPLETE: [tool_name] - [result]"
 ```
+
+#### **🚀 NEW: Automated STATUS.json Generation** ✨
+**MAJOR IMPROVEMENT**: STATUS.json is now automatically generated from CURRENT_STATUS.md!
+
+**Available Scripts**:
+```bash
+npm run generate-status    # Generate STATUS.json from CURRENT_STATUS.md
+npm run sync-status        # Generate + confirmation message
+npm run validate-docs      # Check consistency between files
+npm run commit-status      # Generate + stage files for commit
+```
+
+**Benefits**:
+- ✅ **Zero sync errors** - STATUS.json always matches CURRENT_STATUS.md
+- ✅ **1-file updates** - Only update CURRENT_STATUS.md, automation handles the rest
+- ✅ **API performance** - React website still gets fast JSON parsing
+- ✅ **Single source of truth** - CURRENT_STATUS.md is the master, STATUS.json is generated
 
 #### **MCP Server Restart Rule** 🚨
 **ALWAYS restart the MCP server first** when tools aren't working as expected:
