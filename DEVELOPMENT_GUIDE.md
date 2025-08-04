@@ -178,6 +178,69 @@ mcp_toggle_server("habu-cleanroom", true)   # Enable
 }
 ```
 
+#### **Detailed Tool Breakdown**:
+
+##### **Foundation Tools (8 tools)**
+- `test_connection` - OAuth2 authentication testing
+- `list_cleanrooms` - Comprehensive clean room listing
+- `list_questions` - Question discovery and browsing
+- `configure_data_connection_fields` - Intelligent field mapping
+- `complete_data_connection_setup` - End-to-end connection automation
+- `create_aws_s3_connection` - AWS S3 data integration
+- `start_aws_s3_connection_wizard` - Interactive AWS S3 setup
+- `start_clean_room_creation_wizard` - Complete clean room creation
+
+##### **Partner Collaboration Workflows (4 tools)**
+- `invite_partner_to_cleanroom` - Guided partner invitation
+- `manage_partner_invitations` - Invitation lifecycle management
+- `configure_partner_permissions` - Role-based access controls
+- `partner_onboarding_wizard` - End-to-end partner coordination
+
+##### **Question Management Workflows (4 tools)**
+- `deploy_question_to_cleanroom` - Question deployment with mapping
+- `question_management_wizard` - Interactive question configuration
+- `manage_question_permissions` - Granular question access controls
+- `question_scheduling_wizard` - Automated execution scheduling
+
+##### **Dataset Management Workflows (4 tools)**
+- `provision_dataset_to_cleanroom` - Dataset provisioning with controls
+- `dataset_configuration_wizard` - Interactive dataset-question mapping
+- `manage_dataset_permissions` - Field-level access management
+- `dataset_transformation_wizard` - Data transformation and derived fields
+
+##### **Advanced Execution & Results (4 tools)**
+- `execute_question_run` - Real-time question execution
+- `check_question_run_status` - Point-in-time status checking
+- `results_access_and_export` - Multi-format result processing
+- `scheduled_run_management` - Recurring execution automation
+
+##### **Clean Room Lifecycle Management (4 tools)**
+- `update_cleanroom_configuration` - Configuration management with validation
+- `cleanroom_health_monitoring` - Performance and health analytics
+- `cleanroom_lifecycle_manager` - Archive/reactivate/cleanup operations
+- `cleanroom_access_audit` - Security and compliance audit logging
+
+##### **Multi-Cloud Data Connections (14 tools)**
+- `start_aws_s3_connection_wizard` - Interactive AWS S3 setup
+- `create_snowflake_connection_wizard` - Interactive Snowflake integration
+- `create_databricks_connection_wizard` - Databricks with Delta Lake support
+- `create_gcs_connection_wizard` - Google Cloud Storage with BigQuery
+- `create_azure_connection_wizard` - Azure AD with Synapse integration
+- `create_bigquery_connection_wizard` - Google BigQuery direct connection
+- `create_google_ads_data_hub_wizard` - Google Ads Data Hub integration
+- `create_amazon_marketing_cloud_wizard` - Amazon Marketing Cloud setup
+- `create_snowflake_data_share_wizard` - Snowflake Data Share connections
+- `create_snowflake_secure_views_wizard` - Snowflake Secure Views with privacy controls
+- `create_hubspot_connection_wizard` - HubSpot CRM integration
+- `create_salesforce_connection_wizard` - Salesforce CRM integration
+- `data_connection_health_monitor` - Cross-cloud connection monitoring
+- `complete_data_connection_setup` - Automated field mapping and setup
+
+##### **Advanced Features (3 tools)**
+- `data_export_workflow_manager` - Complete export job lifecycle with multi-destination support
+- `execution_template_manager` - Reusable execution templates for complex workflow automation
+- `advanced_user_management` - Bulk user operations, role management, and enterprise administration
+
 ### Authentication System
 
 #### **OAuth2 Client Credentials Flow**:
