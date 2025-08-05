@@ -610,7 +610,7 @@ def show_project_overview():
     (Claude, Memex, etc.) to manage enterprise data collaboration workflows.
     
     ### 🏗️ Core Architecture
-    - **Primary Server**: `mcp-habu-runner/src/production-index.ts` (45 comprehensive tools)
+    - **Primary Server**: `mcp-habu-runner/src/index.ts` (45 comprehensive tools)
     - **Authentication**: OAuth2 client credentials flow with production API
     - **Distribution**: Compiled Node.js package ready for any MCP client
     - **Coverage**: 99% of LiveRamp Clean Room API functionality

@@ -9,7 +9,7 @@ const path = require('path');
 async function testEnhancedCredentials() {
     console.log('🧪 Testing Enhanced Credential Management\n');
 
-    const mcpServerPath = path.join(__dirname, 'mcp-habu-runner', 'dist', 'production-index.js');
+    const mcpServerPath = path.join(__dirname, 'mcp-habu-runner', 'dist', 'index.js');
     
     console.log('📋 Test 1: List existing credentials before creating new connections...');
     

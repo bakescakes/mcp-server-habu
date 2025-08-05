@@ -10,7 +10,7 @@ const tomorrowStr = tomorrow.toISOString().split('T')[0];
 
 async function testWizardStep(input) {
   return new Promise((resolve, reject) => {
-    const child = spawn('node', ['mcp-habu-runner/dist/production-index.js'], {
+    const child = spawn('node', ['mcp-habu-runner/dist/index.js'], {
       stdio: ['pipe', 'pipe', 'pipe']
     });
 

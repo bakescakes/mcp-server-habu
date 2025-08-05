@@ -1,5 +1,5 @@
 // Debug script to test partner invitation API calls
-const { authenticator } = require('./mcp-habu-runner/dist/production-index.js');
+const { authenticator } = require('./mcp-habu-runner/dist/index.js');
 
 async function debugPartnerInvite() {
   const cleanroomId = '1f901228-c59d-4747-a851-7e178f40ed6b'; // CR-045487

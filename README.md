@@ -90,6 +90,9 @@ Add to your MCP client configuration:
 - **[Missing Functionality](./MISSING_API_FUNCTIONALITY.md)** - Known limitations and future work
 - **[Project History](./archive/)** - Historical milestones and completed plans
 
+### **⚠️ Known Issues**
+- **🔴 Authentication Configuration Bug**: Environment variable credential passing fails; server currently works only with hardcoded fallback credentials. This blocks multi-user deployment until fixed. See [CURRENT_STATUS.md](./CURRENT_STATUS.md#-known-issues) for details.
+
 ## 🛠️ Development
 
 ### **For Developers**

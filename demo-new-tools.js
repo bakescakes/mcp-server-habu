@@ -6,7 +6,7 @@ console.log('🎯 Habu MCP Server - Enhanced Platform Demo');
 console.log('Testing 3 new enterprise tools added for 98% API coverage\n');
 
 // Demo the new tools with realistic usage scenarios
-const mcpServer = spawn('node', ['dist/production-index.js'], {
+const mcpServer = spawn('node', ['dist/index.js'], {
   cwd: '/Users/scottbaker/Workspace/mcp_server_for_habu/mcp-habu-runner',
   stdio: ['pipe', 'pipe', 'pipe']
 });

@@ -3,7 +3,7 @@
 const { spawn } = require('child_process');
 
 // Test the new tools by sending MCP requests
-const mcpServer = spawn('node', ['dist/production-index.js'], {
+const mcpServer = spawn('node', ['dist/index.js'], {
   cwd: '/Users/scottbaker/Workspace/mcp_server_for_habu/mcp-habu-runner',
   stdio: ['pipe', 'pipe', 'pipe']
 });

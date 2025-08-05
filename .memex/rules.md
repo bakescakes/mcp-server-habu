@@ -20,7 +20,7 @@ mcp_server_for_habu/
 ├── mcp-habu-runner/          # Main MCP Server Implementation
 │   ├── src/
 │   │   ├── index.ts          # Production MCP server entry point
-│   │   ├── production-index.ts # Enhanced production server
+│   │   ├── index.ts           # Main production server (OAuth2)
 │   │   ├── auth.ts           # OAuth2 authentication logic
 │   │   └── hybrid-index.ts   # Mixed mock/real API server
 │   ├── dist/                 # Compiled TypeScript output
@@ -37,7 +37,7 @@ mcp_server_for_habu/
 #### 1. **MCP Server Core** (`mcp-habu-runner/src/`)
 - **`index.ts`**: Main production server with 45 comprehensive tools
 - **`auth.ts`**: OAuth2 client credentials flow implementation
-- **`production-index.ts`**: Enhanced server with advanced features
+- **`index.ts`**: Main production server with OAuth2 authentication
 - **`hybrid-index.ts`**: Development server with mock fallbacks
 
 #### 2. **Authentication System**

@@ -3,7 +3,7 @@
 import re
 
 # Read the TypeScript file
-with open('/Users/scottbaker/Workspace/mcp_server_for_habu/mcp-habu-runner/src/production-index.ts', 'r') as f:
+with open('/Users/scottbaker/Workspace/mcp_server_for_habu/mcp-habu-runner/src/index.ts', 'r') as f:
     content = f.read()
 
 # Find all tool definitions in the tools array

@@ -445,6 +445,16 @@ mcp_toggle_server("habu-cleanroom", true)
   2. Check .env file has correct OAuth2 credentials  
   3. Test with test_connection() tool
 
+#### **🚨 Known Credential Configuration Bug**
+- **Issue**: Environment variable authentication fails; server only works with hardcoded fallbacks
+- **Impact**: ❌ Multi-user deployment blocked - won't work with different Habu accounts
+- **Current Workaround**: 
+  - Remove HABU_CLIENT_ID and HABU_CLIENT_SECRET from MCP environment
+  - Server will use working hardcoded fallback credentials
+  - All 45 tools function correctly with fallback credentials
+- **Status**: 🔴 Critical production readiness issue requiring code fix
+- **Discovered**: August 4, 2025
+
 #### **API Endpoint Issues**
 - **Symptoms**: 404 errors, endpoint not found
 - **Solutions**:
