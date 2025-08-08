@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -25,37 +27,35 @@ app.get('/health', (req, res) => {
   });
 });
 
-// STATUS.json endpoint - direct GitHub fetch
+// STATUS.json endpoint - read from local file
 app.get('/api/status', async (req, res) => {
   try {
-    const STATUS_URL = 'https://raw.githubusercontent.com/bakescakes/mcp-server-habu/main/STATUS.json';
-    console.log('Fetching STATUS.json from GitHub...');
+    const statusPath = path.join(__dirname, '..', 'STATUS.json');
+    console.log('Reading STATUS.json from local file...', statusPath);
     
-    const response = await fetch(STATUS_URL);
-    
-    if (!response.ok) {
-      throw new Error(`GitHub fetch failed: ${response.status}`);
+    if (!fs.existsSync(statusPath)) {
+      throw new Error(`STATUS.json file not found at ${statusPath}`);
     }
     
-    const statusData = await response.json();
+    const statusData = JSON.parse(fs.readFileSync(statusPath, 'utf8'));
     
     // Add API metadata
     const enrichedData = {
       ...statusData,
       _api: {
-        source: 'GitHub Raw',
+        source: 'Local File',
         fetchedAt: new Date().toISOString(),
-        url: STATUS_URL
+        filePath: statusPath
       }
     };
     
-    console.log('✅ STATUS.json fetched successfully');
+    console.log('✅ STATUS.json loaded successfully from local file');
     res.json(enrichedData);
     
   } catch (error) {
-    console.error('❌ Error fetching STATUS.json:', error);
+    console.error('❌ Error reading STATUS.json:', error);
     res.status(500).json({
-      error: 'Failed to fetch STATUS.json',
+      error: 'Failed to read STATUS.json',
       message: error instanceof Error ? error.message : 'Unknown error',
       timestamp: new Date().toISOString()
     });

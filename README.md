@@ -23,7 +23,8 @@
 ## 📊 Current Status
 
 **Live Project Status**: See [CURRENT_STATUS.md](./CURRENT_STATUS.md) for real-time information  
-**API Status**: Available at [STATUS.json](./STATUS.json) for automated consumption
+**API Status**: Available at [STATUS.json](./STATUS.json) for automated consumption  
+**Dashboard Status**: See [dashboard/README.md](./dashboard/README.md) for React dashboard deployment
 
 | Metric | Value |
 |--------|-------|
@@ -31,8 +32,35 @@
 | **API Coverage** | 99% of business-critical functionality |
 | **Authentication** | ✅ OAuth2 working |
 | **Production Status** | ✅ Ready for use |
+| **Dashboard** | ✅ Code pushed to GitHub, ready for deployment |
 
-## 🚀 Quick Start
+## 🎯 Dashboard Integration
+
+**NEW**: Production-ready React dashboard for monitoring Habu MCP Server status
+
+### 🌐 Dashboard Architecture  
+- **Backend API**: Railway deployment (`dashboard/backend/`)
+- **Frontend**: Vercel React app (`dashboard/frontend/`)
+- **Data Source**: Live STATUS.json from this repository
+- **Auto-refresh**: 30-second polling for real-time updates
+
+### 📊 Dashboard Features
+- **Project Overview** - Metrics, tools count, API status
+- **Tools Explorer** - Interactive tool documentation
+- **Progress Tracking** - Development timeline and milestones  
+- **Documentation** - Links to guides and references
+
+### 🚀 Dashboard Deployment Status
+- ✅ **Code Complete** - Dashboard pushed to GitHub
+- ⏳ **Railway API** - Ready for deployment 
+- ⏳ **Vercel Frontend** - Ready for deployment
+- ⏳ **Production** - Final testing pending
+
+See **[dashboard/README.md](./dashboard/README.md)** for detailed deployment instructions.
+
+---
+
+## 🚀 MCP Server Quick Start
 
 ### Prerequisites
 - Node.js v18+
