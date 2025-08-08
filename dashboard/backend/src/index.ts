@@ -1,14 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-// ES Module __dirname equivalent
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 // Load environment variables
 dotenv.config();
@@ -42,37 +34,14 @@ app.get('/health', (req, res) => {
   });
 });
 
-// STATUS.json endpoint - supports both local file and GitHub API
+// STATUS.json endpoint - uses GitHub API directly
 app.get('/api/status', async (req, res) => {
   try {
-    // Try local file first (for same-repo deployment)
-    const localPath = path.join(__dirname, '../../../STATUS.json');
-    console.log(`Checking for local STATUS.json at: ${localPath}`);
-    
-    if (fs.existsSync(localPath)) {
-      console.log('Using local STATUS.json file');
-      const statusData = JSON.parse(fs.readFileSync(localPath, 'utf8'));
-      
-      const enrichedData = {
-        ...statusData,
-        _api: {
-          source: 'Local File',
-          path: 'STATUS.json',
-          fetchedAt: new Date().toISOString(),
-          cached: false
-        }
-      };
-      
-      console.log('Successfully loaded local STATUS.json');
-      return res.json(enrichedData);
-    }
-    
-    // Fallback to GitHub API (for separate deployment)
     console.log(`Fetching STATUS.json from GitHub: ${STATUS_JSON_URL}`);
     
     const headers: HeadersInit = {
       'User-Agent': 'Habu-Dashboard-API/1.0.0',
-      'Accept': 'application/vnd.github.v3.raw',
+      'Accept': 'application/json',
     };
 
     if (GITHUB_TOKEN) {
