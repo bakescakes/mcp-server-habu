@@ -1,6 +1,6 @@
-# Force Railway to use Node.js
+# Force Railway to use Node.js  
 [phases.setup]
-nixPkgs = ["nodejs_18", "npm-9_x"]
+nixPkgs = ["nodejs_20", "npm"]
 
 [phases.build] 
 cmds = ["npm ci", "npm run build"]
