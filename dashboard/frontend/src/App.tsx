@@ -249,7 +249,7 @@ const App: React.FC = () => {
           />
         </Sider>
         
-        <Layout style={{ minWidth: '0', flex: '1' }}>
+        <Layout style={{ minWidth: '0', flex: '1', width: '100%' }}>
           <Header style={{ 
             background: '#1a1f29',
             borderBottom: '1px solid #2a2f3a',
@@ -292,8 +292,10 @@ const App: React.FC = () => {
             background: '#0f1419',
             borderRadius: '12px',
             overflow: 'hidden',
-            minWidth: '0',
-            flex: '1'
+            minWidth: '600px',
+            width: 'calc(100vw - 320px)',
+            maxWidth: 'none',
+            flex: '1 1 auto'
           }}>
             {renderContent()}
           </Content>
