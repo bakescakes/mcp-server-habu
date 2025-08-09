@@ -1,34 +1,23 @@
 {
-  "name": "habu-dashboard-api",
+  "name": "mcp-dashboard-backend",
   "version": "1.0.0",
-  "description": "Railway API server for Habu MCP Server Dashboard",
-  "main": "dist/index.js",
   "type": "module",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "tsx watch src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/index.ts"
   },
-  "keywords": [
-    "mcp",
-    "habu",
-    "dashboard",
-    "api"
-  ],
-  "author": "Scott Baker",
-  "license": "MIT",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "node-fetch": "^3.3.2"
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/cors": "^2.8.19",
     "@types/node": "^24.2.0",
-    "tsx": "^4.20.3",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "tsx": "^4.20.3"
   }
 }

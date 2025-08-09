@@ -1,29 +1,28 @@
 import express from 'express';
 import cors from 'cors';
-import fs from 'fs';
 import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
-// CORS configuration
-const corsOptions = {
-  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000', 'http://localhost:5173', 'https://*.vercel.app'],
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-};
+// Configure CORS
+app.use(cors({
+  origin: process.env.ALLOWED_ORIGINS?.split(',') || '*'
+}));
 
-app.use(cors(corsOptions));
 app.use(express.json());
 
-// Health check endpoint
+// Health check
 app.get('/health', (req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    service: 'habu-dashboard-api',
-    version: '1.0.0'
+    service: 'mcp-dashboard-backend'
   });
 });
 
@@ -31,29 +30,23 @@ app.get('/health', (req, res) => {
 app.get('/api/status', async (req, res) => {
   try {
     const statusPath = path.join(__dirname, '..', 'STATUS.json');
-    console.log('Reading STATUS.json from local file...', statusPath);
     
     if (!fs.existsSync(statusPath)) {
-      throw new Error(`STATUS.json file not found at ${statusPath}`);
+      throw new Error(`STATUS.json not found at ${statusPath}`);
     }
     
     const statusData = JSON.parse(fs.readFileSync(statusPath, 'utf8'));
     
-    // Add API metadata
-    const enrichedData = {
+    res.json({
       ...statusData,
       _api: {
         source: 'Local File',
         fetchedAt: new Date().toISOString(),
         filePath: statusPath
       }
-    };
-    
-    console.log('✅ STATUS.json loaded successfully from local file');
-    res.json(enrichedData);
-    
+    });
   } catch (error) {
-    console.error('❌ Error reading STATUS.json:', error);
+    console.error('Error reading STATUS.json:', error);
     res.status(500).json({
       error: 'Failed to read STATUS.json',
       message: error instanceof Error ? error.message : 'Unknown error',
@@ -62,10 +55,6 @@ app.get('/api/status', async (req, res) => {
   }
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Habu Dashboard API server running on port ${PORT}`);
-  console.log(`📊 Health check: http://localhost:${PORT}/health`);
-  console.log(`🔗 STATUS API: http://localhost:${PORT}/api/status`);
-  console.log(`🕐 Started at: ${new Date().toISOString()}`);
+app.listen(port, () => {
+  console.log(`🚀 Server running on port ${port}`);
 });
