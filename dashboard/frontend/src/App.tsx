@@ -209,7 +209,7 @@ const App: React.FC = () => {
         },
       }}
     >
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ minHeight: '100vh', display: 'flex' }}>
         <Sider 
           collapsible 
           collapsed={collapsed} 
@@ -249,7 +249,7 @@ const App: React.FC = () => {
           />
         </Sider>
         
-        <Layout>
+        <Layout style={{ minWidth: '0', flex: '1' }}>
           <Header style={{ 
             background: '#1a1f29',
             borderBottom: '1px solid #2a2f3a',
@@ -259,7 +259,13 @@ const App: React.FC = () => {
             justifyContent: 'space-between'
           }}>
             <Space align="center">
-              <Title level={3} style={{ margin: 0, color: '#e6e6e6' }}>
+              <Title level={3} style={{ 
+                margin: 0, 
+                color: '#e6e6e6',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}>
                 {currentNav?.label}
               </Title>
             </Space>
@@ -285,7 +291,9 @@ const App: React.FC = () => {
             margin: '24px',
             background: '#0f1419',
             borderRadius: '12px',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            minWidth: '0',
+            flex: '1'
           }}>
             {renderContent()}
           </Content>
