@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Row, Col, Typography, Statistic, Progress } from 'antd';
 import { BarChart3, PieChart, TrendingUp, Target } from 'lucide-react';
-import { PieChart as RechartsPieChart, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { PieChart as RechartsPieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const { Title } = Typography;
 
@@ -142,6 +142,17 @@ const Analytics: React.FC<AnalyticsProps> = ({ data }) => {
                     `}
                   </style>
                 </defs>
+                <Pie 
+                  data={statusData}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={80}
+                  dataKey="value"
+                >
+                  {statusData.map((_, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
                 <Tooltip 
                   contentStyle={{ 
                     backgroundColor: '#1a1f29', 
@@ -153,9 +164,6 @@ const Analytics: React.FC<AnalyticsProps> = ({ data }) => {
                 <Legend 
                   wrapperStyle={{ color: '#e6e6e6' }}
                 />
-                {statusData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
               </RechartsPieChart>
             </ResponsiveContainer>
             <div style={{ marginTop: '16px' }}>

@@ -6,8 +6,7 @@ import {
   BarChart3, 
   Clock,
   Activity,
-  Wrench,
-  Archive
+  Wrench
 } from 'lucide-react';
 import axios from 'axios';
 import ProjectOverview from './components/ProjectOverview';
