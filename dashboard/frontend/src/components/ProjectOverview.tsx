@@ -59,7 +59,12 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({ data }) => {
   };
 
   return (
-    <div style={{ padding: '24px' }}>
+    <div style={{ 
+      padding: '24px',
+      width: '100%',
+      minWidth: '0',
+      overflow: 'hidden'
+    }}>
       {/* Header Section */}
       <div style={{ marginBottom: '32px' }}>
         <Space align="start" size="large">
@@ -88,9 +93,13 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({ data }) => {
       </div>
 
       {/* Key Metrics */}
-      <Row gutter={[24, 24]} style={{ marginBottom: '32px' }}>
+      <Row gutter={[24, 24]} style={{ 
+        marginBottom: '32px',
+        width: '100%',
+        minWidth: '0'
+      }}>
         <Col xs={24} sm={12} md={6}>
-          <Card>
+          <Card style={{ minWidth: '200px', width: '100%' }}>
             <Statistic
               title="Total Tools"
               value={data.implementation.totalTools}
@@ -100,7 +109,7 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({ data }) => {
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
-          <Card>
+          <Card style={{ minWidth: '200px', width: '100%' }}>
             <Statistic
               title="Completed"
               value={data.implementation.completedTools}
@@ -110,7 +119,7 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({ data }) => {
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
-          <Card>
+          <Card style={{ minWidth: '200px', width: '100%' }}>
             <Statistic
               title="In Progress"
               value={data.implementation.inProgressTools}
@@ -120,7 +129,7 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({ data }) => {
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
-          <Card>
+          <Card style={{ minWidth: '200px', width: '100%' }}>
             <Statistic
               title="Planned"
               value={data.implementation.plannedTools}
@@ -132,18 +141,20 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({ data }) => {
       </Row>
 
       {/* Progress and Activity */}
-      <Row gutter={[24, 24]}>
+      <Row gutter={[24, 24]} style={{ width: '100%', minWidth: '0' }}>
         <Col xs={24} lg={14}>
-          <Card title={
-            <Space>
-              <TrendingUp size={18} />
-              <span>Implementation Progress</span>
-            </Space>
-          }>
+          <Card 
+            style={{ minWidth: '400px', width: '100%' }}
+            title={
+              <Space>
+                <TrendingUp size={18} />
+                <span>Implementation Progress</span>
+              </Space>
+            }>
             <div style={{ marginBottom: '24px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <Text>Overall Completion</Text>
-                <Text strong>{completionRate}%</Text>
+                <Text style={{ whiteSpace: 'nowrap' }}>Overall Completion</Text>
+                <Text strong style={{ whiteSpace: 'nowrap' }}>{completionRate}%</Text>
               </div>
               <Progress 
                 percent={completionRate} 
@@ -189,12 +200,14 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({ data }) => {
         </Col>
 
         <Col xs={24} lg={10}>
-          <Card title={
-            <Space>
-              <Calendar size={18} />
-              <span>Recent Activity</span>
-            </Space>
-          }>
+          <Card 
+            style={{ minWidth: '300px', width: '100%' }}
+            title={
+              <Space>
+                <Calendar size={18} />
+                <span>Recent Activity</span>
+              </Space>
+            }>
             <Timeline
               items={data.recent_activity.map((activity, index) => ({
                 dot: getActivityIcon(activity.type),

@@ -30,6 +30,28 @@ body {
   min-height: 100vh;
 }
 
+/* Prevent excessive word breaking in dashboard components */
+.ant-typography, .ant-typography * {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+.ant-card, .ant-card * {
+  min-width: 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.ant-statistic-title {
+  white-space: nowrap !important;
+}
+
+.ant-row {
+  min-width: 0;
+  width: 100%;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
