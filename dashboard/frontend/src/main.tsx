@@ -1,11 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import SimpleApp from './SimpleApp.tsx'
 
-// Force Vercel sync - render main App component instead of Debug
+// Simple, working dashboard - no broken components or navigation
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <SimpleApp />
   </StrictMode>,
 )
