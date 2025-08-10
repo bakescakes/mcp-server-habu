@@ -38,7 +38,19 @@ export const useStatus = (): UseStatusResult => {
         throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`);
       }
 
-      const statusData: StatusData = await response.json();
+      const rawData = await response.json();
+      
+      // Transform new API structure to legacy structure for component compatibility
+      const statusData: StatusData = {
+        ...rawData,
+        // Add legacy implementation structure for backward compatibility
+        implementation: {
+          totalTools: rawData.tools?.total || 0,
+          completedTools: rawData.tools?.tested || 0,
+          inProgressTools: rawData.tools?.total - rawData.tools?.tested || 0,
+          plannedTools: 0
+        }
+      };
       
       // Validate that we received expected data structure
       if (!statusData._meta || !statusData.project || !statusData.tools) {

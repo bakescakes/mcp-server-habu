@@ -31,7 +31,15 @@ export interface StatusData {
   project: ProjectStatus;
   tools: ToolsStatus;
   testing: TestingInfo;
-  recentAchievements: string[];
+  recentAchievements: any[];
+  categories: Record<string, number>;
+  // Legacy interface for backward compatibility
+  implementation: {
+    totalTools: number;
+    completedTools: number;
+    inProgressTools: number;
+    plannedTools: number;
+  };
   _api?: {
     source: string;
     url: string;
