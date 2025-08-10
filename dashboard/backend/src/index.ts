@@ -10,9 +10,15 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 3001;
 
-// Configure CORS
+// Configure CORS - be more explicit about allowed origins
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',').map(o => o.trim()) || ['*'];
+console.log('CORS allowed origins:', allowedOrigins);
+
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS?.split(',') || '*'
+  origin: allowedOrigins.includes('*') ? true : allowedOrigins,
+  credentials: false,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
@@ -23,6 +29,16 @@ app.get('/health', (req, res) => {
     status: 'healthy',
     timestamp: new Date().toISOString(),
     service: 'mcp-dashboard-backend'
+  });
+});
+
+// CORS test endpoint
+app.get('/api/cors-test', (req, res) => {
+  res.json({
+    message: 'CORS is working',
+    origin: req.headers.origin || 'No origin header',
+    timestamp: new Date().toISOString(),
+    allowedOrigins: process.env.ALLOWED_ORIGINS?.split(',') || ['*']
   });
 });
 
