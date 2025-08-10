@@ -26,31 +26,85 @@ app.get('/health', (req, res) => {
   });
 });
 
-// STATUS.json endpoint - read from local file
+// STATUS.json endpoint - fetch from GitHub
 app.get('/api/status', async (req, res) => {
   try {
-    const statusPath = path.join(__dirname, '..', 'STATUS.json');
+    // GitHub configuration
+    const GITHUB_OWNER = 'bakescakes';
+    const GITHUB_REPO = 'mcp-server-habu';
+    const GITHUB_FILE_PATH = 'STATUS.json';
     
-    if (!fs.existsSync(statusPath)) {
-      throw new Error(`STATUS.json not found at ${statusPath}`);
+    // Construct GitHub API URL
+    const githubUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE_PATH}`;
+    
+    // Prepare headers for GitHub API
+    const headers: Record<string, string> = {
+      'Accept': 'application/vnd.github.v3+json',
+      'User-Agent': 'MCP-Server-Dashboard-Backend/1.0'
+    };
+    
+    // Add authentication if GitHub token is available (for private repos)
+    if (process.env.GITHUB_TOKEN) {
+      headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
     }
     
-    const statusData = JSON.parse(fs.readFileSync(statusPath, 'utf8'));
+    console.log(`Fetching STATUS.json from GitHub: ${githubUrl}`);
+    console.log(`Using authentication: ${process.env.GITHUB_TOKEN ? 'YES' : 'NO'}`);
+    
+    // Fetch from GitHub API
+    const response = await fetch(githubUrl, { headers });
+    
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+    }
+    
+    const githubData = await response.json();
+    
+    // Decode the base64 content
+    const statusContent = Buffer.from(githubData.content, 'base64').toString('utf8');
+    const statusData = JSON.parse(statusContent);
     
     res.json({
       ...statusData,
       _api: {
-        source: 'Local File',
+        source: 'GitHub API',
         fetchedAt: new Date().toISOString(),
-        filePath: statusPath
+        repository: `${GITHUB_OWNER}/${GITHUB_REPO}`,
+        filePath: GITHUB_FILE_PATH,
+        githubSha: githubData.sha,
+        authenticated: !!process.env.GITHUB_TOKEN
       }
     });
   } catch (error) {
-    console.error('Error reading STATUS.json:', error);
+    console.error('Error fetching STATUS.json from GitHub:', error);
+    
+    // Fallback to local file if GitHub fetch fails
+    try {
+      console.log('Attempting fallback to local STATUS.json...');
+      const statusPath = path.join(__dirname, '..', 'STATUS.json');
+      
+      if (fs.existsSync(statusPath)) {
+        const statusData = JSON.parse(fs.readFileSync(statusPath, 'utf8'));
+        res.json({
+          ...statusData,
+          _api: {
+            source: 'Local File (Fallback)',
+            fetchedAt: new Date().toISOString(),
+            filePath: statusPath,
+            fallbackReason: error instanceof Error ? error.message : 'GitHub fetch failed'
+          }
+        });
+        return;
+      }
+    } catch (fallbackError) {
+      console.error('Local fallback also failed:', fallbackError);
+    }
+    
     res.status(500).json({
-      error: 'Failed to read STATUS.json',
+      error: 'Failed to fetch STATUS.json',
       message: error instanceof Error ? error.message : 'Unknown error',
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      attempted: ['GitHub API', 'Local File Fallback']
     });
   }
 });
