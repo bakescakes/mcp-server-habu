@@ -16,6 +16,7 @@ export const useStatus = (): UseStatusResult => {
       setError(null);
 
       console.log(`Fetching status from: ${API_BASE_URL}/api/status`);
+      console.log(`Environment: ${import.meta.env.MODE}, API URL: ${API_BASE_URL}`);
       
       const response = await fetch(`${API_BASE_URL}/api/status`, {
         method: 'GET',
