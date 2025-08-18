@@ -116,22 +116,22 @@ deploy_question_to_cleanroom
 ## 📚 **Documentation**
 
 ### **User Documentation**
-- **[🔧 Tools Reference](docs/MCP_TOOLS_REFERENCE.md)** - Complete user-friendly tool guide
-- **[📚 Detailed Reference](docs/MCP_TOOLS_REFERENCE_DETAILED.md)** - Technical implementation details
-- **[📊 Current Status](docs/CURRENT_STATUS.md)** - Project status and testing progress
+- **[🔧 Tools Reference](development/docs/MCP_TOOLS_REFERENCE.md)** - Complete user-friendly tool guide
+- **[📚 Detailed Reference](development/docs/MCP_TOOLS_REFERENCE_DETAILED.md)** - Technical implementation details
+- **[📊 Current Status](development/docs/CURRENT_STATUS.md)** - Project status and testing progress
 
 ### **Developer Documentation**
-- **[🛠️ Development Guide](docs/DEVELOPMENT_GUIDE.md)** - Workflows, automation, troubleshooting
-- **[📋 API Coverage Analysis](docs/api/API_COVERAGE_ANALYSIS.md)** - Complete API endpoint mapping
+- **[🛠️ Development Guide](development/docs/DEVELOPMENT_GUIDE.md)** - Workflows, automation, troubleshooting
+- **[📋 API Coverage Analysis](development/docs/api/API_COVERAGE_ANALYSIS.md)** - Complete API endpoint mapping
 - **[🔒 Security Guidelines](mcp-habu-server-bundle/README.md)** - Installation and security best practices
 
 ### **Testing & Validation**
-- **[🧪 Testing Status](docs/testing/MCP_TOOL_TESTING_STATUS.md)** - Tool validation progress and results
-- **[📝 Testing Progress](docs/testing/TESTING_PROGRESS.md)** - Methodology and work queue
-- **[🔬 Batch Testing Log](docs/testing/BATCH_EXECUTION_TESTING_LOG.md)** - Comprehensive validation evidence
+- **[🧪 Testing Status](development/docs/testing/MCP_TOOL_TESTING_STATUS.md)** - Tool validation progress and results
+- **[📝 Testing Progress](development/docs/testing/TESTING_PROGRESS.md)** - Methodology and work queue
+- **[🔬 Batch Testing Log](development/docs/testing/BATCH_EXECUTION_TESTING_LOG.md)** - Comprehensive validation evidence
 
-### **📚 Complete Documentation**
-- **[All Documentation](docs/README.md)** - Complete navigation guide to all docs
+### **🛠️ Development Resources**
+- **[Development Directory](development/README.md)** - Complete development navigation guide
 
 ---
 
@@ -190,7 +190,7 @@ deploy_question_to_cleanroom
 ## 🗂️ **Repository Structure**
 
 ```
-mcp-server-habu/
+mcp-server-habu/                     # 🏆 Ultra-Clean Repository
 ├── README.md                        # 📋 Project overview and quick start
 ├── LICENSE                          # 📄 MIT license
 ├── mcp-habu-server-bundle/          # 📦 Main MCP Server (Production Ready)
@@ -200,18 +200,15 @@ mcp-server-habu/
 │   │   └── hybrid-index.ts          # Development server with mocks
 │   ├── dist/                        # Compiled JavaScript
 │   └── README.md                    # Installation & setup guide
-├── docs/                            # 📚 All Documentation
-│   ├── README.md                    # Documentation navigation guide
-│   ├── MCP_TOOLS_REFERENCE.md       # User-friendly tools guide
-│   ├── CURRENT_STATUS.md            # Live project status
-│   ├── api/                         # API documentation
-│   └── testing/                     # Testing documentation
-├── config/                          # ⚙️ Configuration files
-├── tools/                           # 🛠️ Development utilities
-├── debugging-scripts/               # 🔧 API testing and debugging
-├── examples/                        # 📖 Usage examples
-├── archive/                         # 📁 Historical documentation
-└── dashboard-project/               # 🖥️ React dashboard project (separate)
+└── development/                     # 🛠️ All Development Resources
+    ├── README.md                    # Development navigation guide
+    ├── docs/                        # Complete documentation
+    ├── tools/                       # Development utilities
+    ├── debugging-scripts/           # API testing and debugging
+    ├── examples/                    # Usage examples
+    ├── config/                      # Configuration files
+    ├── dashboard-project/           # React dashboard project
+    └── archive/                     # Historical documentation
 ```
 
 ---
@@ -225,10 +222,10 @@ mcp-server-habu/
 4. **Security**: Never commit credentials or sensitive information
 
 ### Key Development Resources
-- **[Development Guide](DEVELOPMENT_GUIDE.md)**: Complete developer workflows
+- **[Development Guide](development/docs/DEVELOPMENT_GUIDE.md)**: Complete developer workflows
 - **Test Environment**: Production cleanroom `CR-045487` for validation
-- **API Documentation**: `Clean_Room-Complete-Documentation-June-2025.pdf`
-- **Debugging Scripts**: Located in `debugging-scripts/` directory
+- **API Documentation**: `development/docs/api/Clean_Room-Complete-Documentation-June-2025.pdf`
+- **Debugging Scripts**: Located in `development/debugging-scripts/` directory
 
 ---
 
@@ -249,7 +246,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **[MCP Protocol Documentation](https://modelcontextprotocol.io/)**
 - **[Habu Clean Room Platform](https://www.habu.com/)**
-- **[Live Project Status](docs/CURRENT_STATUS.md)** (Updated: 2025-08-04)
+- **[Live Project Status](development/docs/CURRENT_STATUS.md)** (Updated: 2025-08-04)
 
 ---
 
