@@ -116,19 +116,22 @@ deploy_question_to_cleanroom
 ## 📚 **Documentation**
 
 ### **User Documentation**
-- **[🔧 Tools Reference](MCP_TOOLS_REFERENCE.md)** - Complete user-friendly tool guide
-- **[📚 Detailed Reference](MCP_TOOLS_REFERENCE_DETAILED.md)** - Technical implementation details
-- **[📊 Current Status](CURRENT_STATUS.md)** - Project status and testing progress
+- **[🔧 Tools Reference](docs/MCP_TOOLS_REFERENCE.md)** - Complete user-friendly tool guide
+- **[📚 Detailed Reference](docs/MCP_TOOLS_REFERENCE_DETAILED.md)** - Technical implementation details
+- **[📊 Current Status](docs/CURRENT_STATUS.md)** - Project status and testing progress
 
 ### **Developer Documentation**
-- **[🛠️ Development Guide](DEVELOPMENT_GUIDE.md)** - Workflows, automation, troubleshooting
-- **[📋 API Coverage Analysis](API_COVERAGE_ANALYSIS.md)** - Complete API endpoint mapping
+- **[🛠️ Development Guide](docs/DEVELOPMENT_GUIDE.md)** - Workflows, automation, troubleshooting
+- **[📋 API Coverage Analysis](docs/api/API_COVERAGE_ANALYSIS.md)** - Complete API endpoint mapping
 - **[🔒 Security Guidelines](mcp-habu-server-bundle/README.md)** - Installation and security best practices
 
 ### **Testing & Validation**
-- **[🧪 Testing Status](archive/MCP_TOOL_TESTING_STATUS.md)** - Tool validation progress and results
-- **[📝 Testing Progress](archive/TESTING_PROGRESS.md)** - Methodology and work queue
-- **[🔬 Batch Testing Log](archive/BATCH_EXECUTION_TESTING_LOG.md)** - Comprehensive validation evidence
+- **[🧪 Testing Status](docs/testing/MCP_TOOL_TESTING_STATUS.md)** - Tool validation progress and results
+- **[📝 Testing Progress](docs/testing/TESTING_PROGRESS.md)** - Methodology and work queue
+- **[🔬 Batch Testing Log](docs/testing/BATCH_EXECUTION_TESTING_LOG.md)** - Comprehensive validation evidence
+
+### **📚 Complete Documentation**
+- **[All Documentation](docs/README.md)** - Complete navigation guide to all docs
 
 ---
 
@@ -188,6 +191,8 @@ deploy_question_to_cleanroom
 
 ```
 mcp-server-habu/
+├── README.md                        # 📋 Project overview and quick start
+├── LICENSE                          # 📄 MIT license
 ├── mcp-habu-server-bundle/          # 📦 Main MCP Server (Production Ready)
 │   ├── src/                         # TypeScript source code
 │   │   ├── index.ts                 # Main production server
@@ -195,11 +200,16 @@ mcp-server-habu/
 │   │   └── hybrid-index.ts          # Development server with mocks
 │   ├── dist/                        # Compiled JavaScript
 │   └── README.md                    # Installation & setup guide
-├── MCP_TOOLS_REFERENCE.md           # 📚 User-friendly tools guide
-├── MCP_TOOLS_REFERENCE_DETAILED.md  # 🔬 Technical implementation details
-├── CURRENT_STATUS.md                # 📊 Authoritative project status
-├── debugging-scripts/               # 🔧 API testing and debugging tools
-├── tools/                           # 🛠️ Analysis and utility scripts
+├── docs/                            # 📚 All Documentation
+│   ├── README.md                    # Documentation navigation guide
+│   ├── MCP_TOOLS_REFERENCE.md       # User-friendly tools guide
+│   ├── CURRENT_STATUS.md            # Live project status
+│   ├── api/                         # API documentation
+│   └── testing/                     # Testing documentation
+├── config/                          # ⚙️ Configuration files
+├── tools/                           # 🛠️ Development utilities
+├── debugging-scripts/               # 🔧 API testing and debugging
+├── examples/                        # 📖 Usage examples
 ├── archive/                         # 📁 Historical documentation
 └── dashboard-project/               # 🖥️ React dashboard project (separate)
 ```
@@ -239,7 +249,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **[MCP Protocol Documentation](https://modelcontextprotocol.io/)**
 - **[Habu Clean Room Platform](https://www.habu.com/)**
-- **[Live Project Status](CURRENT_STATUS.md)** (Updated: 2025-08-04)
+- **[Live Project Status](docs/CURRENT_STATUS.md)** (Updated: 2025-08-04)
 
 ---
 
