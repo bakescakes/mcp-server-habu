@@ -17,11 +17,12 @@
 ### **ABSOLUTE REQUIREMENTS - NEVER VIOLATE**
 
 #### **Repository Root Maximum**
-The `bakescakes/mcp-server-habu` repository root MUST contain ONLY 4 items:
+The `bakescakes/mcp-server-habu` repository root MUST contain ONLY these essential items:
 - `README.md` - Project overview and quick start
 - `LICENSE` - MIT license file
 - `mcp-habu-server-bundle/` - Main MCP server directory
 - `development/` - All development resources
+- `dashboard/` - **DEPLOYMENT EXCEPTION** - Required for Railway/Vercel paths
 
 #### **File Creation Rules**
 - **NEVER create files in repository root**
@@ -30,22 +31,24 @@ The `bakescakes/mcp-server-habu` repository root MUST contain ONLY 4 items:
 
 #### **Organization Standards**
 ```
-mcp-server-habu/                  # ONLY 4 ITEMS ALLOWED
+mcp-server-habu/                  # ESSENTIAL ITEMS ONLY
 ├── README.md                     # ✅ Core project overview
 ├── LICENSE                       # ✅ Legal requirement
 ├── mcp-habu-server-bundle/       # ✅ Main MCP server
+├── dashboard/                    # ✅ DEPLOYMENT EXCEPTION (Railway/Vercel)
+│   ├── frontend/                 # React frontend for Vercel
+│   └── backend/                  # Node.js backend for Railway
 └── development/                  # ✅ Everything else goes here
     ├── docs/                     # Documentation
     ├── tools/                    # Development utilities  
     ├── debugging-scripts/        # Testing and debugging
     ├── examples/                 # Usage examples
-    ├── config/                   # Configuration files
-    └── dashboard-project/        # Related projects
+    └── config/                   # Configuration files
 ```
 
 #### **Before Every Commit - Verification Required**
 ```bash
-ls -1 | wc -l    # MUST show 4 or fewer items
+ls -1 | wc -l    # MUST show 5 or fewer items (includes deployment exception)
 ```
 
 #### **Emergency Restoration**

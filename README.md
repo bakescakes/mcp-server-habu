@@ -190,7 +190,7 @@ deploy_question_to_cleanroom
 ## 🗂️ **Repository Structure**
 
 ```
-mcp-server-habu/                     # 🏆 Ultra-Clean Repository
+mcp-server-habu/                     # 🏆 Professional Repository Structure
 ├── README.md                        # 📋 Project overview and quick start
 ├── LICENSE                          # 📄 MIT license
 ├── mcp-habu-server-bundle/          # 📦 Main MCP Server (Production Ready)
@@ -200,6 +200,9 @@ mcp-server-habu/                     # 🏆 Ultra-Clean Repository
 │   │   └── hybrid-index.ts          # Development server with mocks
 │   ├── dist/                        # Compiled JavaScript
 │   └── README.md                    # Installation & setup guide
+├── dashboard/                       # 🖥️ Deployed Dashboard (Railway/Vercel)
+│   ├── frontend/                    # React frontend (Vercel deployment)
+│   └── backend/                     # Node.js API backend (Railway deployment)
 └── development/                     # 🛠️ All Development Resources
     ├── README.md                    # Development navigation guide
     ├── docs/                        # Complete documentation
@@ -207,7 +210,6 @@ mcp-server-habu/                     # 🏆 Ultra-Clean Repository
     ├── debugging-scripts/           # API testing and debugging
     ├── examples/                    # Usage examples
     ├── config/                      # Configuration files
-    ├── dashboard-project/           # React dashboard project
     └── archive/                     # Historical documentation
 ```
 
