@@ -34,3 +34,58 @@ pids
 *.pid
 *.seed
 *.pid.lock
+
+# ===========================================
+# MEMEX DEVELOPMENT CLUTTER - DO NOT COMMIT
+# ===========================================
+
+# Debugging scripts (temporary exploration)
+debug-*.js
+test-*.js
+check-*.js
+analyze-*.js
+
+# One-off analysis and audit tools
+audit_*.py
+detailed_audit.py
+*_audit.py
+analyze-*.py
+
+# Testing and exploration files
+demo-*.js
+*-test.js
+*-debug.js
+*-temp.js
+
+# Temporary development files
+temp-*.js
+temp-*.py
+scratch-*.js
+scratch-*.py
+
+# Log files and temporary outputs
+*.log
+streamlit.log
+test-output.txt
+debug-output.txt
+
+# Development documentation (temporary)
+test-upload.md
+debug-*.md
+temp-*.md
+
+# Distribution and build artifacts (keep source, not built)
+*.tar.gz
+*.zip
+mcp-habu-server-bundle.tar.gz
+
+# Python cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Temporary development directories
+/temp/
+/scratch/
+/debug-workspace/

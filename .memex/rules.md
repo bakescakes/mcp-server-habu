@@ -59,6 +59,39 @@ git push --force origin main
 
 **Rationale**: This maintains professional GitHub presentation matching industry leaders (React, Vue.js, TypeScript) and ensures stakeholder-ready appearance.
 
+### **DEVELOPMENT CLUTTER PREVENTION - CRITICAL**
+
+#### **DO NOT COMMIT - Temporary Development Files**
+- **Debug Scripts**: `debug-*.js`, `test-*.js`, `check-*.js`
+- **Analysis Tools**: `audit_*.py`, `analyze-*.js`, one-off exploration scripts
+- **Temporary Files**: `temp-*.js`, `scratch-*.py`, exploration code
+- **Log Files**: `*.log`, `streamlit.log`, debug outputs
+- **Build Artifacts**: `*.tar.gz`, distribution bundles
+- **Demo/Test Files**: `demo-*.js`, temporary testing utilities
+
+#### **Keep Local Only - Development Workflow**
+```bash
+# Create temporary files in ignored patterns
+debug-feature-test.js       # ✅ Will be ignored
+temp-api-exploration.py     # ✅ Will be ignored
+check-endpoints.js          # ✅ Will be ignored
+```
+
+#### **What TO Commit - Permanent Value**
+- **Core MCP Server Code**: Production server files
+- **Documentation**: User guides, API references, project status
+- **Configuration**: Deployment configs, package.json files
+- **Examples**: Reusable code examples (not debugging scripts)
+
+#### **Before Every Commit - Clutter Check**
+```bash
+git status                  # Review what's being added
+# Ask: "Is this permanent value or temporary exploration?"
+# If temporary exploration → Don't commit or add to .gitignore
+```
+
+**Rationale**: Prevents repository clutter, maintains professional presentation, and keeps focus on permanent project value.
+
 ---
 
 ## 🏗️ Project Architecture & Structure
