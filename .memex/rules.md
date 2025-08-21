@@ -86,11 +86,37 @@ check-endpoints.js          # ✅ Will be ignored
 #### **Before Every Commit - Clutter Check**
 ```bash
 git status                  # Review what's being added
+ls -1 | wc -l              # Verify 5 or fewer items in root
 # Ask: "Is this permanent value or temporary exploration?"
 # If temporary exploration → Don't commit or add to .gitignore
 ```
 
-**Rationale**: Prevents repository clutter, maintains professional presentation, and keeps focus on permanent project value.
+#### **AI Development Workflow**
+```bash
+# ✅ CORRECT: Create temporary files with ignored patterns
+debug-feature-test.js       # Automatically ignored
+temp-api-exploration.py     # Automatically ignored
+check-endpoints.js          # Automatically ignored
+
+# ❌ WRONG: Create permanent-looking files for temporary work
+feature-test.js             # Will be committed by mistake
+api-exploration.py          # Looks like permanent code
+endpoints.js                # Unclear if temporary or permanent
+```
+
+#### **Emergency Clutter Cleanup**
+If repository gets cluttered:
+```bash
+# Remove debug/test clutter
+rm -f debug-*.js test-*.js demo-*.js
+rm -f *audit*.py analyze-*.js temp-*.py
+rm -f *.log *.tar.gz
+
+# Check results
+find development/ -type f | wc -l  # Should be reasonable number
+```
+
+**Rationale**: Prevents repository clutter, maintains professional presentation, keeps focus on permanent project value, and ensures AI assistants follow clean development practices automatically.
 
 ---
 
