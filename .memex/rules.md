@@ -12,32 +12,82 @@
 
 ---
 
+## 🚨 **GITHUB REPOSITORY ORGANIZATION - CRITICAL RULES**
+
+### **ABSOLUTE REQUIREMENTS - NEVER VIOLATE**
+
+#### **Repository Root Maximum**
+The `bakescakes/mcp-server-habu` repository root MUST contain ONLY 4 items:
+- `README.md` - Project overview and quick start
+- `LICENSE` - MIT license file
+- `mcp-habu-server-bundle/` - Main MCP server directory
+- `development/` - All development resources
+
+#### **File Creation Rules**
+- **NEVER create files in repository root**
+- **NEVER create directories in repository root** 
+- **ALL new content goes in `development/` subdirectories**
+
+#### **Organization Standards**
+```
+mcp-server-habu/                  # ONLY 4 ITEMS ALLOWED
+├── README.md                     # ✅ Core project overview
+├── LICENSE                       # ✅ Legal requirement
+├── mcp-habu-server-bundle/       # ✅ Main MCP server
+└── development/                  # ✅ Everything else goes here
+    ├── docs/                     # Documentation
+    ├── tools/                    # Development utilities  
+    ├── debugging-scripts/        # Testing and debugging
+    ├── examples/                 # Usage examples
+    ├── config/                   # Configuration files
+    └── dashboard-project/        # Related projects
+```
+
+#### **Before Every Commit - Verification Required**
+```bash
+ls -1 | wc -l    # MUST show 4 or fewer items
+```
+
+#### **Emergency Restoration**
+```bash
+git reset --hard 5ca95ef  # Ultra-clean commit
+git push --force origin main
+```
+
+**Rationale**: This maintains professional GitHub presentation matching industry leaders (React, Vue.js, TypeScript) and ensures stakeholder-ready appearance.
+
+---
+
 ## 🏗️ Project Architecture & Structure
 
 ### Core Directory Structure
 ```
-mcp_server_for_habu/
-├── mcp-habu-runner/          # Main MCP Server Implementation
+mcp-server-habu/               # ULTRA-CLEAN: Only 4 items in root
+├── README.md                  # Project overview and quick start
+├── LICENSE                    # MIT license
+├── mcp-habu-server-bundle/    # Main MCP Server Implementation
 │   ├── src/
-│   │   ├── index.ts          # Production MCP server entry point
 │   │   ├── index.ts           # Main production server (OAuth2)
-│   │   ├── auth.ts           # OAuth2 authentication logic
-│   │   └── hybrid-index.ts   # Mixed mock/real API server
-│   ├── dist/                 # Compiled TypeScript output
-│   ├── package.json          # Node.js dependencies & scripts
-│   └── .env                  # Environment configuration
-├── pyproject.toml           # Python package configuration
-├── *.md                     # Documentation files
-├── *.js                     # Debug/test scripts
-└── *.py                     # Analysis/audit utilities
+│   │   ├── auth.ts            # OAuth2 authentication logic
+│   │   └── hybrid-index.ts    # Development server with mocks
+│   ├── dist/                  # Compiled TypeScript output
+│   ├── package.json           # Node.js dependencies & scripts
+│   └── .env                   # Environment configuration
+└── development/               # All development resources
+    ├── docs/                  # Complete documentation
+    ├── tools/                 # Development utilities
+    ├── debugging-scripts/     # Debug/test scripts
+    ├── examples/              # Usage examples
+    ├── config/                # Configuration files
+    ├── dashboard-project/     # React dashboard
+    └── archive/               # Historical documentation
 ```
 
 ### Core Components
 
-#### 1. **MCP Server Core** (`mcp-habu-runner/src/`)
+#### 1. **MCP Server Core** (`mcp-habu-server-bundle/src/`)
 - **`index.ts`**: Main production server with 45 comprehensive tools
 - **`auth.ts`**: OAuth2 client credentials flow implementation
-- **`index.ts`**: Main production server with OAuth2 authentication
 - **`hybrid-index.ts`**: Development server with mock fallbacks
 
 #### 2. **Authentication System**
@@ -62,22 +112,22 @@ mcp_server_for_habu/
 ### Essential Files (Never Delete/Modify Without Review)
 
 #### **Production Critical**
-- `mcp-habu-runner/src/index.ts` - Main production server
-- `mcp-habu-runner/src/auth.ts` - Authentication implementation
-- `mcp-habu-runner/package.json` - Node.js configuration
-- `pyproject.toml` - Python package definition
-- `.env` - Environment configuration (contains secrets)
+- `mcp-habu-server-bundle/src/index.ts` - Main production server
+- `mcp-habu-server-bundle/src/auth.ts` - Authentication implementation
+- `mcp-habu-server-bundle/package.json` - Node.js configuration
+- `development/pyproject.toml` - Python package definition
+- `mcp-habu-server-bundle/.env` - Environment configuration (contains secrets)
 
 #### **Documentation Critical**
 - `README.md` - Project overview and setup
-- `MCP_TOOL_TESTING_STATUS.md` - Testing status and findings
-- `TESTING_PROGRESS.md` - Methodology and progress tracking
-- `API_COVERAGE_ANALYSIS.md` - API implementation coverage
+- `development/docs/MCP_TOOL_TESTING_STATUS.md` - Testing status and findings
+- `development/docs/TESTING_PROGRESS.md` - Methodology and progress tracking
+- `development/docs/API_COVERAGE_ANALYSIS.md` - API implementation coverage
 
 #### **Historical Critical**
-- `MISSION_ACCOMPLISHED.md` - Project completion summary
-- `IMPLEMENTATION_COMPLETE_SUMMARY.md` - Implementation achievements
-- `NEW_WIZARDS_COMPLETION_SUMMARY.md` - Latest feature additions
+- `development/archive/MISSION_ACCOMPLISHED.md` - Project completion summary
+- `development/archive/IMPLEMENTATION_COMPLETE_SUMMARY.md` - Implementation achievements
+- `development/archive/NEW_WIZARDS_COMPLETION_SUMMARY.md` - Latest feature additions
 
 ### Utility Functions & Patterns
 
