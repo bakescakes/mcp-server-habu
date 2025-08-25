@@ -18,36 +18,6 @@ This comprehensive guide documents all **45 MCP tools** with detailed technical 
 
 ---
 
-## 🚨 Known Limitations & Issues
-
-### **Authentication Configuration Bug** 
-**Status:** 🔴 Critical Production Issue  
-**Impact:** Multi-user deployment blocked
-
-**Issue:** The MCP server has a credential configuration bug where environment variable authentication fails, but hardcoded fallback credentials work.
-
-**Technical Details:**
-- ✅ **Working**: Hardcoded OAuth2 credentials in `src/index.ts` 
-- ❌ **Broken**: Environment variables `HABU_CLIENT_ID` and `HABU_CLIENT_SECRET`
-- **Root Cause**: Environment variable processing bug in MCP server initialization
-- **Discovery Date**: August 4, 2025
-
-**Current Workaround:**
-- Server uses hardcoded fallback credentials: `oTSkZnax86IjfhzqIllOBOk5MJ7zojh` / `bGzWYlAx...8SKC`
-- All 45 tools work correctly with these credentials
-- OAuth2 authentication and API calls function properly
-
-**Production Impact:**
-- ❌ Won't work for users with different Habu accounts
-- ❌ Can't be configured for different environments  
-- ❌ Security concern (credentials in source code)
-- ✅ Full functionality available for current credential set
-
-**Required Fix:** 
-Environment variable credential processing needs debugging and repair for true production readiness.
-
----
-
 ## 📊 Tool Categories & API Coverage
 
 | Category | Count | Primary APIs | Advanced Features |
@@ -730,4 +700,4 @@ Environment variable credential processing needs debugging and repair for true p
 **API Coverage: Comprehensive with 100+ endpoints mapped** ✅  
 **Last Updated: January 17, 2025** ✅
 
-*This documentation was extracted directly from the production MCP server source code at `/mcp-habu-runner/src/index.ts` and represents the complete technical implementation of all 45 tools.*
+*This documentation was extracted directly from the production MCP server source code at `/mcp-habu-runner/src/production-index.ts` and represents the complete technical implementation of all 45 tools.*

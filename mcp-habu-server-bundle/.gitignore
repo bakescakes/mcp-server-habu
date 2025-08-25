@@ -25,3 +25,41 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# ===========================================
+# TESTING & DEBUGGING FILES - DO NOT COMMIT
+# ===========================================
+
+# Test files (development only)
+test-*.js
+test-*.ts
+*-test.js
+*-test.ts
+
+# Debug scripts
+debug-*.js
+debug-*.ts
+check-*.js
+demo-*.js
+
+# Development variants of main files
+*-dev.ts
+*-debug.ts
+hybrid-*.ts
+index-with-*.ts
+oauth-index.ts
+production-index.ts
+
+# Large documentation files (keep in development/docs/)
+*.pdf
+*Documentation*.pdf
+
+# Analysis and audit files
+audit_*.py
+analyze-*.js
+detailed_*.py
+
+# Log files and outputs
+*.log
+streamlit.log
+debug-output.txt
