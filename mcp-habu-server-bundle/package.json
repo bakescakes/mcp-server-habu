@@ -2,7 +2,7 @@
   "name": "mcp-habu-runner",
   "version": "1.0.0",
   "description": "MCP Server for Habu Clean Room Query Execution",
-  "main": "dist/hybrid-index.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
